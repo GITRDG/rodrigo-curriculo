@@ -1,0 +1,3507 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Currículo | Portfólio</title>
+    <style>
+      :root{
+        --bg0: #0b1220;
+        --bg1: #0c1630;
+        --card: rgba(255, 255, 255, 0.08);
+        --card2: rgba(255, 255, 255, 0.06);
+        --border: rgba(255, 255, 255, 0.14);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --muted2: rgba(255, 255, 255, 0.56);
+        --shadow: 0 24px 80px rgba(0,0,0,0.35);
+        --shadow2: 0 18px 50px rgba(0,0,0,0.28);
+        --radius-lg: 26px;
+        --radius-md: 18px;
+        --radius-sm: 14px;
+        --accent: #7dd3fc;
+        --accent2: #a78bfa;
+        --accent3: #fb7185;
+        --line: rgba(255, 255, 255, 0.18);
+        --max: 1020px;
+      }
+
+      *{ box-sizing: border-box; }
+      html, body{ height: 100%; }
+      body{
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        color: var(--text);
+        background:
+          radial-gradient(1200px 800px at 18% 10%, rgba(125, 211, 252, 0.32), transparent 60%),
+          radial-gradient(900px 700px at 80% 22%, rgba(167, 139, 250, 0.32), transparent 55%),
+          radial-gradient(1000px 900px at 50% 86%, rgba(251, 113, 133, 0.18), transparent 60%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+        overflow-x: hidden;
+      }
+
+      a{ color: inherit; text-decoration: none; }
+      button{ font: inherit; }
+
+      .bg-orbs{
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        filter: blur(14px);
+        opacity: 0.65;
+      }
+      .orb{
+        position: absolute;
+        width: 380px;
+        height: 380px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), rgba(255,255,255,0) 55%);
+        mix-blend-mode: screen;
+      }
+      .orb.o1{ left: -120px; top: 120px; background: radial-gradient(circle at 30% 30%, rgba(125, 211, 252, 0.52), rgba(125, 211, 252, 0) 62%); }
+      .orb.o2{ right: -120px; top: 260px; background: radial-gradient(circle at 40% 35%, rgba(167, 139, 250, 0.56), rgba(167, 139, 250, 0) 62%); }
+      .orb.o3{ left: 40%; bottom: -220px; background: radial-gradient(circle at 35% 35%, rgba(251, 113, 133, 0.40), rgba(251, 113, 133, 0) 62%); }
+
+      .page{
+        width: min(var(--max), calc(100% - 40px));
+        margin: 34px auto 46px;
+      }
+
+      .shell{
+        background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        overflow: hidden;
+      }
+
+      .topbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 18px;
+        gap: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+
+      .brand{
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 650;
+        letter-spacing: 0.2px;
+      }
+      .mark{
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(125,211,252,0.95), rgba(167,139,250,0.95));
+        box-shadow: 0 12px 30px rgba(125, 211, 252, 0.18);
+        display: grid;
+        place-items: center;
+      }
+      .mark svg{ width: 18px; height: 18px; }
+      .brand small{
+        display: block;
+        font-weight: 500;
+        color: var(--muted2);
+        letter-spacing: 0;
+      }
+
+      .nav{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .nav a{
+        padding: 10px 12px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-weight: 550;
+        font-size: 13px;
+        border: 1px solid transparent;
+      }
+      .nav a:hover{
+        color: var(--text);
+        border-color: rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.06);
+      }
+      .langMenu{
+        position: relative;
+        display: inline-block;
+      }
+      .langMenuButton{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-width: 72px;
+        padding: 8px 12px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+        color: var(--text);
+        border-radius: 999px;
+        box-shadow: 0 10px 22px rgba(0,0,0,0.20);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+      }
+      .langMenuButton:hover{
+        background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+        border-color: rgba(255,255,255,0.24);
+        transform: translateY(-1px);
+      }
+      .langMenuButton:focus{
+        outline: 2px solid rgba(125,211,252,0.6);
+        outline-offset: 2px;
+      }
+      .langMenuCurrent{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 22px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        line-height: 1;
+      }
+      .langMenuChevron{
+        width: 12px;
+        height: 12px;
+        opacity: 0.86;
+        transition: transform 160ms ease;
+      }
+      .langMenuButton[aria-expanded="true"] .langMenuChevron{
+        transform: rotate(180deg);
+      }
+      .langMenuList{
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        width: 100%;
+        min-width: 100%;
+        padding: 8px;
+        display: grid;
+        gap: 6px;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.07));
+        box-shadow: var(--shadow2);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        z-index: 30;
+      }
+      .langMenuList[hidden]{
+        display: none;
+      }
+      .langMenuOption{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
+        border: 1px solid transparent;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.05);
+        color: var(--text);
+        text-align: center;
+        cursor: pointer;
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+      .langMenuOption:hover{
+        background: rgba(255,255,255,0.10);
+        border-color: rgba(255,255,255,0.14);
+        transform: translateY(-1px);
+      }
+      .langMenuOption[aria-checked="true"]{
+        border-color: rgba(125,211,252,0.34);
+        background: linear-gradient(135deg, rgba(125,211,252,0.18), rgba(167,139,250,0.12));
+      }
+      .langMenuText{
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .content{
+        padding: 22px;
+      }
+
+      .hero{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        align-items: stretch;
+      }
+      .heroCard{
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow2);
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 28px;
+        align-items: start;
+      }
+      .heroCard::before{
+        content: "";
+        position: absolute;
+        inset: -160px -140px auto auto;
+        width: 380px;
+        height: 380px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 35% 35%, rgba(125,211,252,0.26), transparent 60%);
+        pointer-events: none;
+      }
+      .kicker{
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 11px;
+        border-radius: 999px;
+        border: 1px solid rgba(110, 231, 183, 0.35);
+        background: linear-gradient(135deg, rgba(110, 231, 183, 0.22), rgba(16, 185, 129, 0.16));
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 12px;
+        width: fit-content;
+      }
+      .kicker strong{
+        color: var(--text);
+        font-weight: 650;
+      }
+      h1{
+        margin: 14px 0 8px;
+        font-size: clamp(28px, 4.2vw, 44px);
+        line-height: 1.05;
+        letter-spacing: -0.5px;
+      }
+      .subtitle{
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 64ch;
+      }
+
+      .ctaRow{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+      .btn{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-width: 170px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        font-weight: 650;
+        font-size: 13px;
+        line-height: 1.2;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      }
+      .btn svg{
+        flex: 0 0 18px;
+        width: 18px;
+        height: 18px;
+      }
+      .btn .btnLabel{
+        display: inline-block;
+        white-space: nowrap;
+      }
+      .btn:hover{
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.11);
+        border-color: rgba(255,255,255,0.20);
+      }
+      .btn.primary{
+        border-color: rgba(125,211,252,0.35);
+        background: linear-gradient(135deg, rgba(125,211,252,0.24), rgba(167,139,250,0.18));
+      }
+      .contactModal{
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        display: grid;
+        place-items: center;
+        padding: 22px;
+        background: rgba(3, 8, 20, 0.72);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .contactModal[hidden]{
+        display: none;
+      }
+      .contactModalCard{
+        width: min(100%, 620px);
+        background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.07));
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        padding: 22px;
+        position: relative;
+      }
+      .contactModalClose{
+        width: 17px;
+        height: 17px;
+        border: 1px solid rgba(251,113,133,0.28);
+        border-radius: 8px;
+        background: rgba(251,113,133,0.10);
+        color: var(--text);
+        display: inline-grid;
+        place-items: center;
+        padding: 0;
+        line-height: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        z-index: 1;
+      }
+      .contactModalClose:hover{
+        background: rgba(251,113,133,0.16);
+        border-color: rgba(251,113,133,0.40);
+      }
+      .contactModalClose svg{
+        width: 10px;
+        height: 10px;
+        display: block;
+      }
+      .contactForm{
+        display: grid;
+        gap: 14px;
+      }
+      .contactField{
+        display: grid;
+        gap: 8px;
+      }
+      .contactField label{
+        font-size: 13px;
+        font-weight: 650;
+        color: var(--text);
+      }
+      .contactField input,
+      .contactField textarea{
+        width: 100%;
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 16px;
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        padding: 10px 14px;
+        font: inherit;
+        outline: none;
+      }
+      .contactField input::placeholder,
+      .contactField textarea::placeholder{
+        color: var(--muted2);
+      }
+      .contactField input:focus,
+      .contactField textarea:focus{
+        border-color: rgba(125,211,252,0.45);
+        box-shadow: 0 0 0 3px rgba(125,211,252,0.10);
+      }
+      .contactField textarea{
+        min-height: 160px;
+        padding: 14px;
+        resize: vertical;
+      }
+      .contactEmailBox{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 14px;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.05);
+        color: var(--muted);
+        flex-wrap: wrap;
+      }
+      .contactEmailText strong{
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text);
+        font-size: 13px;
+      }
+      .contactEmailValue{
+        font-size: 14px;
+        color: var(--text);
+        word-break: break-all;
+      }
+      .contactCopyBtn{
+        min-width: 124px;
+      }
+      .contactActions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 4px;
+      }
+      .contactHint{
+        color: var(--muted2);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .contactFeedback{
+        min-height: 18px;
+        color: var(--accent);
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .miniStats{
+        margin-top: 14px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: var(--muted2);
+        font-size: 12px;
+      }
+      .pill{
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.05);
+      }
+      .highlightNotice{
+        margin-top: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(245, 158, 11, 0.72);
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(234, 179, 8, 0.10));
+        box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      }
+      .highlightNotice svg{
+        width: 22px;
+        height: 22px;
+        color: #fbbf24;
+        flex: 0 0 auto;
+        margin-top: 2px;
+      }
+      .highlightNotice strong{
+        display: block;
+        color: #fcd34d;
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+      .highlightNotice p{
+        margin: 0;
+        color: rgba(255, 248, 220, 0.92);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .profileCard{
+        background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow2);
+        padding: 16px;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+      .profileCard::before{
+        content: "";
+        position: absolute;
+        inset: -140px auto auto -140px;
+        width: 320px;
+        height: 320px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 35% 35%, rgba(251,113,133,0.18), transparent 65%);
+        pointer-events: none;
+      }
+      .avatar{
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background:
+          url("fotos/rodrigo.jpeg") center center / cover no-repeat,
+          radial-gradient(120px 120px at 30% 30%, rgba(255,255,255,0.20), transparent 60%),
+          linear-gradient(135deg, rgba(125,211,252,0.26), rgba(167,139,250,0.22), rgba(251,113,133,0.14));
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .avatarInner{
+        width: 72%;
+        height: 72%;
+        border-radius: 999px;
+        background: rgba(0,0,0,0.20);
+        border: 1px solid rgba(255,255,255,0.14);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        display: grid;
+        place-items: center;
+        font-weight: 750;
+        letter-spacing: 1px;
+      }
+      .profileMeta{
+        display: grid;
+        gap: 8px;
+      }
+      .nameRow{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .nameRow h2{
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+      }
+      .badge{
+        font-size: 11px;
+        color: var(--muted);
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.05);
+      }
+      .metaLine{
+        color: var(--muted2);
+        font-size: 12px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .metaLine span{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .metaLine svg{ width: 14px; height: 14px; opacity: 0.9; }
+
+      .sectionGrid{
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .sectionTitle{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 0 0 10px;
+      }
+      .sectionTitle h3{
+        margin: 0;
+        font-size: 18px;
+        letter-spacing: 0.2px;
+      }
+      .sectionTitle p{
+        margin: 0;
+        color: var(--muted2);
+        font-size: 12px;
+      }
+
+      .panel{
+        background: var(--card2);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: var(--radius-md);
+        padding: 14px;
+        box-shadow: 0 12px 34px rgba(0,0,0,0.22);
+      }
+
+      .timeline{
+        position: relative;
+        padding-left: 18px;
+      }
+      .timeline::before{
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(125,211,252,0.55), rgba(167,139,250,0.35), rgba(255,255,255,0.08));
+        border-radius: 99px;
+        opacity: 0.65;
+      }
+      .tItem{
+        position: relative;
+        padding: 12px 12px 12px 14px;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        margin: 12px 0;
+      }
+      .tItem::before{
+        content: "";
+        position: absolute;
+        left: -18px;
+        top: 18px;
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.20);
+        border: 1px solid rgba(255,255,255,0.18);
+        box-shadow: 0 0 0 6px rgba(255,255,255,0.06);
+      }
+      .tTop{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .tTop strong{ font-size: 13px; }
+      .tTop small{
+        color: var(--muted2);
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .tCompany{
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .tDesc{
+        margin: 10px 0 0;
+        color: var(--muted2);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .tThumbs{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .thumb{
+        height: 64px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background:
+          radial-gradient(80px 60px at 30% 30%, rgba(255,255,255,0.18), transparent 70%),
+          linear-gradient(135deg, rgba(125,211,252,0.14), rgba(167,139,250,0.12), rgba(0,0,0,0.08));
+      }
+
+      .timelineModern{
+        margin-top: 8px;
+      }
+      .tmItem{
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-left: 30px;
+        margin: 0 0 18px;
+      }
+      .tmLeftDate{
+        display: none;
+      }
+      .tmCenter{
+        position: absolute;
+        left: 0;
+        top: 2px;
+        bottom: -26px;
+        width: 16px;
+      }
+      .tmDot{
+        position: absolute;
+        top: 3px;
+        left: 1px;
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(125,211,252,0.95), rgba(167,139,250,0.95));
+        border: 1px solid rgba(255,255,255,0.24);
+        box-shadow: 0 0 0 6px rgba(255,255,255,0.06);
+      }
+      .tmLine{
+        position: absolute;
+        top: 20px;
+        left: 6px;
+        bottom: 0;
+        width: 2px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(125,211,252,0.52), rgba(167,139,250,0.34), rgba(255,255,255,0.08));
+      }
+      .tmItem:last-child .tmLine{
+        display: none;
+      }
+      .tmCard{
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        padding: 12px;
+      }
+      .tmDateMobile{
+        display: inline-block;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted2);
+      }
+      .tmCard h4{
+        margin: 8px 0 0;
+        font-size: 16px;
+      }
+      .tmCompany{
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .tmDesc{
+        margin: 10px 0 0;
+        color: var(--muted2);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .tmTags{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .tmTagsList{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tmTag{
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(255,255,255,0.05);
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .tmTag.accent{
+        border-color: rgba(125,211,252,0.36);
+        background: linear-gradient(135deg, rgba(125,211,252,0.20), rgba(167,139,250,0.12));
+        color: rgba(255,255,255,0.9);
+      }
+      .tmToggle{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        cursor: pointer;
+        flex: 0 0 auto;
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+      .tmToggle:hover{
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.26);
+        transform: translateY(-1px);
+      }
+      .tmToggle svg{
+        width: 16px;
+        height: 16px;
+        transition: transform 220ms ease;
+      }
+      .tmToggle[aria-expanded="true"] svg{
+        transform: rotate(180deg);
+      }
+      .tmExpand{
+        margin-top: 10px;
+        border-radius: 0;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        padding: 12px;
+        display: grid;
+        gap: 18px;
+        grid-column: 1 / -1;
+        width: calc(100% + 58px);
+        margin-left: -44px;
+      }
+      .tmExpand[hidden]{
+        display: none;
+      }
+      .tmStoryList{
+        display: grid;
+        gap: 12px;
+      }
+      .tmStoryItem{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 12px;
+        background: rgba(255,255,255,0.04);
+        padding: 10px;
+      }
+      .tmStoryPhoto{
+        width: 100%;
+        max-width: 280px;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: linear-gradient(135deg, rgba(125,211,252,0.22), rgba(167,139,250,0.16), rgba(251,113,133,0.14));
+        object-fit: cover;
+        object-position: top center;
+      }
+      .tmStoryInfo h5{
+        margin: 0;
+        font-size: 13px;
+      }
+      .tmStoryInfo p{
+        margin: 8px 0 0;
+        color: var(--muted2);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .tmCarousel{
+        width: 100%;
+      }
+      .tmCarouselSlide{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .tmCarouselMedia{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      @keyframes panVertical {
+        0% { object-position: 50% 0%; }
+        50% { object-position: 50% 100%; }
+        100% { object-position: 50% 0%; }
+      }
+      .tmCarouselMainWrap{
+        width: 100%;
+      }
+      .tmCarouselMain{
+        width: 100%;
+        max-width: 280px;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: linear-gradient(135deg, rgba(125,211,252,0.22), rgba(167,139,250,0.16), rgba(251,113,133,0.14));
+        object-fit: cover;
+        object-position: 50% 0%;
+        display: block;
+        cursor: zoom-in;
+        animation: panVertical 15s ease-in-out infinite;
+      }
+      .tmCarouselNav{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .tmCarouselBtn{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        cursor: pointer;
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+      .tmCarouselBtn:hover{
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.26);
+        transform: translateY(-1px);
+      }
+      .tmCarouselBtn svg{
+        width: 14px;
+        height: 14px;
+      }
+      .tmCarouselThumbs{
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+      .tmThumb{
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.05);
+        padding: 0;
+        cursor: pointer;
+        flex: 0 0 auto;
+        overflow: hidden;
+      }
+      .tmThumb img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      .tmThumb[aria-current="true"]{
+        border-color: rgba(125,211,252,0.55);
+        box-shadow: 0 0 0 3px rgba(125,211,252,0.14);
+      }
+      .tmCarouselInfo h5{
+        margin: 0;
+        font-size: 13px;
+      }
+      .tmCarouselInfo p{
+        margin: 8px 0 0;
+        color: var(--muted2);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .tmStoryPhoto{
+        cursor: zoom-in;
+      }
+      .tmLightbox{
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 22px;
+        background: rgba(0,0,0,0.76);
+      }
+      .tmLightbox[hidden]{
+        display: none;
+      }
+      .tmLightboxInner{
+        position: relative;
+        width: min(1180px, 100%);
+        max-height: calc(100vh - 44px);
+        display: grid;
+        place-items: center;
+      }
+      .tmLightboxImg{
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: calc(100vh - 44px);
+        object-fit: contain;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(0,0,0,0.18);
+        display: block;
+      }
+      .tmLightboxClose{
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.22);
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+      .tmLightboxClose:hover{
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.28);
+        transform: translateY(-1px);
+      }
+      .tmLightboxClose svg{
+        width: 16px;
+        height: 16px;
+      }
+      .tmLightboxNav{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.22);
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+      .tmLightboxNav[hidden]{
+        display: none !important;
+      }
+      .tmLightboxNav:hover{
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.28);
+        transform: translateY(calc(-50% - 1px));
+      }
+      .tmLightboxNav svg{
+        width: 18px;
+        height: 18px;
+      }
+      .tmLightboxPrev{
+        left: 8px;
+      }
+      .tmLightboxNext{
+        right: 8px;
+      }
+      @media (min-width: 880px){
+        .tmItem{
+          grid-template-columns: 1fr 80px 1fr;
+          gap: 12px;
+          padding-left: 0;
+          margin: 0 0 24px;
+        }
+        .tmLeftDate{
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+          text-align: right;
+          font-size: 10px;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: var(--muted2);
+          padding-top: 6px;
+        }
+        .tmCenter{
+          position: relative;
+          left: auto;
+          top: auto;
+          bottom: auto;
+          width: auto;
+          min-height: 100%;
+        }
+        .tmDot{
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .tmLine{
+          left: 50%;
+          transform: translateX(-50%);
+          top: 20px;
+          bottom: -24px;
+        }
+        .tmCard{
+          grid-column: 3;
+        }
+        .tmDateMobile{
+          display: none;
+        }
+        .tmExpand{
+          width: calc(100% + 28px);
+          margin-left: -14px;
+        }
+        .tmStoryItem{
+          grid-template-columns: 280px 1fr;
+          align-items: stretch;
+        }
+        .tmStoryPhoto{
+          max-width: none;
+        }
+        .tmCarouselSlide{
+          grid-template-columns: 380px 1fr;
+          align-items: start;
+        }
+        .tmCarouselMedia{
+          grid-template-columns: 1fr 84px;
+          align-items: start;
+        }
+        .tmCarouselMain{
+          max-width: none;
+        }
+        .tmCarouselThumbs{
+          flex-direction: column;
+          overflow-y: auto;
+          overflow-x: hidden;
+          max-height: 280px;
+          padding-right: 2px;
+        }
+      }
+
+      .workList{
+        display: grid;
+        gap: 12px;
+      }
+      .workCard{
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 12px;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+      }
+      .workMedia{
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.12);
+        overflow: hidden;
+        background:
+          radial-gradient(45px 45px at 35% 35%, rgba(255,255,255,0.20), transparent 70%),
+          linear-gradient(135deg, rgba(167,139,250,0.18), rgba(125,211,252,0.16), rgba(0,0,0,0.08));
+        display: grid;
+        place-items: center;
+      }
+      .workMedia img{
+        cursor: pointer;
+      }
+      .workMedia svg{ width: 30px; height: 30px; opacity: 0.95; }
+      .workCard h4{
+        margin: 0;
+        font-size: 13px;
+      }
+      .workCard p{
+        margin: 6px 0 0;
+        font-size: 12px;
+        color: var(--muted2);
+        line-height: 1.45;
+      }
+
+      .achievements{
+        margin-top: 18px;
+      }
+      .achGrid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .achCard{
+        padding: 14px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      }
+      .achIcon{
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: linear-gradient(135deg, rgba(125,211,252,0.22), rgba(167,139,250,0.14));
+      }
+      .achIcon svg{ width: 22px; height: 22px; opacity: 0.95; }
+      .achCard strong{
+        display: block;
+        margin-top: 10px;
+        font-size: 13px;
+      }
+      .achCard small{
+        display: block;
+        margin-top: 4px;
+        color: var(--muted2);
+        line-height: 1.45;
+        font-size: 12px;
+      }
+
+      .footer{
+        margin-top: 16px;
+        padding: 14px 18px;
+        border-top: 1px solid rgba(255,255,255,0.10);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .social{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .iconBtn{
+        width: 38px;
+        height: 38px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        color: var(--text);
+      }
+      .iconBtn:hover{
+        background: rgba(255,255,255,0.10);
+        border-color: rgba(255,255,255,0.18);
+      }
+      .iconBtn svg{ width: 18px; height: 18px; opacity: 0.92; }
+      .footRight{
+        text-align: right;
+        color: var(--muted2);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+      .footRight a{
+        color: var(--text);
+        border-bottom: 1px dashed rgba(255,255,255,0.28);
+      }
+
+      @media (max-width: 880px){
+        .page{
+          width: min(var(--max), calc(100% - 24px));
+          margin: 18px auto 28px;
+        }
+        .topbar{
+          align-items: flex-start;
+          padding: 14px;
+        }
+        .nav{
+          width: 100%;
+          justify-content: flex-start;
+        }
+        .content{
+          padding: 16px;
+        }
+        .hero{
+          grid-template-columns: 1fr;
+        }
+        .heroCard{
+          grid-template-columns: 1fr;
+          gap: 18px;
+          padding: 16px;
+        }
+        .avatar{
+          aspect-ratio: 16/10;
+        }
+        .sectionGrid{
+          grid-template-columns: 1fr;
+        }
+        .achGrid{
+          grid-template-columns: 1fr;
+        }
+        .tmExpand{
+          width: 100%;
+          margin-left: 0;
+        }
+        .footRight{
+          text-align: left;
+        }
+      }
+
+      @media (max-width: 640px){
+        .topbar{
+          flex-direction: column;
+          align-items: stretch;
+          gap: 14px;
+        }
+        .brand{
+          width: 100%;
+        }
+        .nav{
+          gap: 8px;
+        }
+        .nav a{
+          flex: 1 1 calc(50% - 8px);
+          text-align: center;
+          padding: 11px 12px;
+        }
+        .langMenu{
+          width: 100%;
+        }
+        .langMenuButton{
+          width: 100%;
+          min-width: 0;
+        }
+        .langMenuList{
+          width: 100%;
+          min-width: 0;
+        }
+        h1{
+          font-size: clamp(26px, 9vw, 36px);
+          line-height: 1.08;
+        }
+        .heroCard > .profileCard{
+          order: -1;
+        }
+        .heroCard > div:first-child{
+          order: 1;
+        }
+        .subtitle{
+          font-size: 13px;
+        }
+        .ctaRow{
+          flex-direction: column;
+        }
+        .btn{
+          width: 100%;
+          min-width: 0;
+        }
+        .btn .btnLabel{
+          white-space: normal;
+        }
+        .miniStats{
+          gap: 8px;
+        }
+        .pill{
+          width: 100%;
+          text-align: center;
+        }
+        .highlightNotice{
+          padding: 12px;
+        }
+        .sectionTitle{
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .tmItem{
+          padding-left: 24px;
+        }
+        .tmCenter{
+          width: 14px;
+        }
+        .tmDot{
+          width: 10px;
+          height: 10px;
+        }
+        .tmLine{
+          left: 5px;
+        }
+        .tmTags{
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .tmToggle{
+          align-self: flex-end;
+        }
+        .tmStoryPhoto,
+        .tmCarouselMain{
+          max-width: 100%;
+        }
+        .workCard{
+          grid-template-columns: 1fr;
+          align-items: start;
+        }
+        .workMedia{
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16 / 10;
+        }
+        .contactModal{
+          padding: 12px;
+        }
+        .contactModalCard{
+          padding: 18px 14px 14px;
+          border-radius: 18px;
+        }
+        .contactEmailBox{
+          align-items: stretch;
+        }
+        .contactCopyBtn{
+          width: 100%;
+          min-width: 0;
+        }
+        .footer{
+          padding: 14px;
+        }
+        .social{
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 420px){
+        .page{
+          width: min(var(--max), calc(100% - 16px));
+          margin: 10px auto 20px;
+        }
+        .content{
+          padding: 12px;
+        }
+        .heroCard,
+        .profileCard,
+        .panel,
+        .achCard,
+        .workCard{
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .nav a{
+          flex-basis: 100%;
+        }
+        .kicker{
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+        .metaLine{
+          gap: 8px;
+        }
+        .metaLine span{
+          width: 100%;
+        }
+        .tmCard{
+          padding: 10px;
+        }
+        .tmExpand{
+          padding: 10px;
+        }
+        .tmLightbox{
+          padding: 10px;
+        }
+        .tmLightboxClose{
+          top: 6px;
+          right: 6px;
+          width: 34px;
+          height: 34px;
+        }
+        .tmLightboxNav{
+          width: 38px;
+          height: 38px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        .btn{ transition: none; }
+      }
+
+      @media print{
+        body{ background: #ffffff; color: #111; }
+        .bg-orbs{ display: none; }
+        .shell{ box-shadow: none; border-color: #ddd; background: #fff; }
+        .topbar, .footer{ border-color: #eee; }
+        .nav{ display: none; }
+        .heroCard, .profileCard, .panel, .tItem, .workCard, .achCard{ box-shadow: none; background: #fff; border-color: #eee; }
+        .kicker, .pill, .badge{ background: #fff; border-color: #eee; color: #333; }
+        .subtitle, .tDesc, .workCard p, .achCard small, .footRight{ color: #333; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true">
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+      <div class="orb o3"></div>
+    </div>
+
+    <main class="page">
+      <section class="shell" aria-label="Currículo">
+        <header class="topbar">
+          <a class="brand" href="#inicio" aria-label="Ir ao início">
+            <span class="mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>
+              <span id="brandName">RODRIGO ANDRADE SANTOS</span>
+              <small>Currículo • Portfólio</small>
+            </span>
+          </a>
+
+          <nav class="nav" aria-label="Navegação">
+            <a href="#sobre">Sobre</a>
+            <a href="#trajetoria">Trajetória</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+            <div class="langMenu" id="languageMenu">
+              <button
+                type="button"
+                id="languageButton"
+                class="langMenuButton"
+                aria-label="Seleção de idioma"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="languageOptions"
+              >
+                <span id="languageLabel" class="langMenuCurrent">ES</span>
+                <svg class="langMenuChevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div id="languageOptions" class="langMenuList" role="menu" hidden>
+                <button type="button" class="langMenuOption" data-lang="es" role="menuitemradio" aria-checked="true">
+                  <span class="langMenuText">ES</span>
+                </button>
+                <button type="button" class="langMenuOption" data-lang="pt" role="menuitemradio" aria-checked="false">
+                  <span class="langMenuText">PT</span>
+                </button>
+                <button type="button" class="langMenuOption" data-lang="en" role="menuitemradio" aria-checked="false">
+                  <span class="langMenuText">EN</span>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="content" id="inicio">
+          <section class="hero" aria-label="Apresentação">
+            <article class="heroCard">
+              <div>
+                <div class="kicker">
+                  <strong>Disponível</strong>
+                  <span>para oportunidades</span>
+                </div>
+                <h1>Soluções Práticas Para Desafios Técnicos</h1>
+                <p class="subtitle">
+                  <strong>Técnico em Mecatrônica</strong>
+                  Atuação em montagem e manutenção de quadros elétricos, sistemas eletromecânicos, de frotas elétricas a centrais solares. Garantindo conformidade técnica, segurança e máxima operacionalidade.
+                </p>
+
+                <div class="ctaRow">
+                  <a class="btn primary" href="#trajetoria">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M7 14l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="btnLabel">Ver Trajetória</span>
+                  </a>
+                  <a class="btn" href="#" id="openContactModal" data-open-contact-modal>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4.5 7.5l7.1 5.1c.9.6 1.9.6 2.8 0L21.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.5 18.5h11c2 0 4-1.6 4-3.6V9.1c0-2-2-3.6-4-3.6h-11c-2 0-4 1.6-4 3.6v5.8c0 2 2 3.6 4 3.6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span class="btnLabel">E-mail</span>
+                  </a>
+                </div>
+
+                <div class="miniStats" aria-label="Destaques">
+                  <span class="pill">Mecatrônica • Manutenção</span>
+                  <span class="pill">Usinagem • Fabricação</span>
+                  <span class="pill">Eletricista • Montador de Quadros</span>
+                </div>
+
+                <div class="highlightNotice" aria-label="Destaque sobre oportunidades na Espanha">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 17l-5.3 2.8 1-5.8-4.2-4.1 5.9-.9L12 3.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                  <div style="display: grid; gap: 4px;">
+                    <p>Sou do Brasil, vivo e trabalho em Portugal há três anos. Estou a procura de uma oportunidade para viver e trabalhar na Espanha:</p>
+                    <p>Instaladores eletricistas está no <strong style="display: inline; margin: 0;">Catálogo de Ocupaciones de Dificil Cobertura.</strong> <svg viewBox="0 0 24 16" aria-hidden="true" style="width: 18px; height: 12px; vertical-align: -1px; margin-left: 6px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,0.16);"><rect width="24" height="16" fill="#c1121f"/><rect y="4" width="24" height="8" fill="#fbbf24"/></svg></p>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="profileCard" id="sobre" aria-label="Perfil">
+              <div class="avatar" role="img" aria-label="Foto do perfil"></div>
+              <div class="profileMeta">
+                <div class="nameRow">
+                  <h2 id="profileName">Rodrigo Andrade Santos</h2>
+                  <span class="badge" id="roleBadge">Técnico</span>
+                </div>
+                <div class="metaLine">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4.5 7.5l7.1 5.1c.9.6 1.9.6 2.8 0L21.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M6.5 18.5h11c2 0 4-1.6 4-3.6V9.1c0-2-2-3.6-4-3.6h-11c-2 0-4 1.6-4 3.6v5.8c0 2 2 3.6 4 3.6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span id="email">rodrigo.rdgk@gmail.com</span>
+                  </span>
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span id="phone">+351 963385694</span>
+                  </span>
+                </div>
+                <div class="metaLine">
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M6.5 9.5V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M6.5 6.2h0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                      <path d="M10.5 18v-5.1c0-1.9 1.2-3.4 3.2-3.4s3.3 1.3 3.3 3.6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M10.5 12c.4-1.4 1.7-2.5 3.3-2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <a href="https://www.linkedin.com/in/andrade-rodrigo2023/" target="_blank" rel="noopener noreferrer" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; display: inline-block; vertical-align: bottom;">linkedin.com/in/andrade-rodrigo2023/</a>
+                  </span>
+                  <span>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M7 11.5h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M7 15.5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M7.5 4.5h7l3 3v12c0 1.1-.9 2-2 2h-8c-1.1 0-2-.9-2-2v-13c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                    <a href="#contato">Baixar CV</a>
+                  </span>
+                </div>
+              </aside>
+            </article>
+          </section>
+
+          <section class="sectionGrid" aria-label="Conteúdo principal">
+            <section class="panel" id="trajetoria" aria-label="Trajetória">
+              <div class="sectionTitle">
+                <h3>Minha Trajetória</h3>
+                <p>Percurso Profissional</p>
+              </div>
+
+              <div class="timelineModern" role="list">
+                <article class="tmItem" role="listitem">
+                  <div class="tmLeftDate">2023 — Presente</div>
+                  <div class="tmCenter" aria-hidden="true">
+                    <span class="tmDot"></span>
+                    <span class="tmLine"></span>
+                  </div>
+                  <div class="tmCard">
+                    <span class="tmDateMobile">2023 - 2026 — Presente</span>
+                    <h4>Eletricista de Auto</h4>
+                    <div class="tmCompany">@ CaetanoBus l Vila Nova de Gaia, - Portugal</div>
+                    <p class="tmDesc">
+                      Trabalho há três anos na CaetanoBus, como eletricista de autocarros elétricos e diesel. Iniciei na linha de produção, realizando montagem de sistemas de alta tensão e comunicação, garantindo qualidade e segurança. Atualmente, atuo na fase de pós-produção, com diagnóstico e correção de avarias e testes completos dos veículos, incluindo sistemas de iluminação, câmaras, climatização, comunicação e carregamento elétrico.
+                    </p>
+                    <div class="tmTags">
+                      <div class="tmTagsList">
+                        <img src="fotos salvador/ok working.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="fotos salvador/ok circuit.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="fotos salvador/carpete ferramente.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                      </div>
+                      <button class="tmToggle" type="button" aria-expanded="false" aria-controls="traj-details-1" aria-label="Expandir detalhes da trajetória">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="tmExpand" id="traj-details-1" hidden>
+                    <!-- Primeiro Carrossel -->
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/ok working.jpg" alt="Etapa 2 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Instalação e Integração de Sistemas de Alta Tensão</h5>
+                          <p>No primeiro ano, fui destacado para a área de instalação de sistemas de potência em autocarros elétricos, onde atuei na montagem e integração de componentes de alta tensão. Desempenhei funções com elevado nível de responsabilidade, garantindo o cumprimento rigoroso dos padrões de segurança e qualidade exigidos, além de contribuir para a eficiência e fiabilidade dos sistemas elétricos dos veículos.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/ok circuit.jpg" alt="Atividade no ambiente de trabalho">
+                        <div class="tmStoryInfo">
+                          <h5>Potência, Controle e Qualidade</h5>
+                          <p>É impressionante observar a qualidade e o nível de engenharia aplicados nos sistemas elétricos de potência, onde cada detalhe é pensado para garantir segurança, eficiência e desempenho. Trabalhar com esse tipo de tecnologia reforça constantemente a importância do rigor técnico e da excelência na execução.</p>
+                        </div>
+                      </article>
+                    </div>
+
+                    <!-- Segundo Carrossel -->
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/carpete ferramente.jpg" alt="Etapa 1 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Padronização e Organização de Ferramentas de Trabalho</h5>
+                          <p>Implementei uma melhoria na organização das ferramentas, que anteriormente ficavam dispersas. Utilizando sobras de materiais, desenvolvi uma espécie de “mala” personalizada, com espaços definidos para cada ferramenta. Esse sistema permite uma verificação rápida, facilitando a identificação de itens em falta tanto no início quanto no final das atividades, aumentando a eficiência e o controle no trabalho..</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/ferramenta espalhada.jpg" alt="Etapa 2 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Ferramentas Sem Organização</h5>
+                          <p>Antes, as ferramentas ficavam espalhadas e sem padrão de organização, dificultando o controle e aumentando o tempo de preparação e finalização das atividades.</p>
+                        </div>
+                      </article>
+                    </div>
+
+                    <!-- Terceiro Carrossel -->
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/kaizen0.jpeg" alt="Etapa 1 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Aplicação de Monitoramento de Montagem</h5>
+                          <p>Desenvolvi uma aplicação estratégica para otimizar o fluxo de trabalho na linha de montagem, baseada nos princípios de Gestão Visual. A ferramenta permite o registro em tempo real de cada etapa da instalação dos componentes, utilizando um sistema de cores intuitivo:</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/kaizen1.jpeg" alt="Etapa 2 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Aplicação de Monitoramento de Montagem</h5>
+                          <p style="margin: 8px 0; display: flex; flex-direction: column; gap: 6px;">
+                            <span style="display: block;">🔴 Vermelho: Componente pendente de instalação.</span>
+                            <span style="display: block;">🟡 Amarelo: Instalação iniciada, mas incompleta.</span>
+                            <span style="display: block;">🟢 Verde: Instalação concluída com sucesso.</span>
+                          </p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/kaizen3.jpeg" alt="Etapa 3 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Aplicação de Monitoramento de Montagem</h5>
+                          <p>Esta solução eliminou falhas de comunicação entre turnos, permitindo que qualquer colaborador identifique instantaneamente o status do projeto. Além de facilitar a continuidade do trabalho, a aplicação tornou o processo de verificação de peças faltantes muito mais ágil e preciso, garantindo maior eficiência e controle de qualidade na entrega final.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/superte.jpeg" alt="Etapa 1 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Suporte Auxiliar para Tomada de Carregamento</h5>
+                          <p>Identifiquei uma oportunidade de melhoria no processo de conexão e desconexão das tomadas de carregamento. Anteriormente, devido ao peso e posicionamento, a tarefa exigia o esforço de dois colaboradores.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/superte ro.jpeg" alt="Etapa 2 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Suporte Auxiliar para Tomada de Carregamento</h5>
+                          <p>Desenvolvi e implementei um suporte metálico que estabiliza a tomada, permitindo que a operação seja realizada com total segurança por apenas uma pessoa.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <div class="tmStoryInfo">
+                          <h5>Foto 3</h5>
+                          <p>Descrição da foto 3.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="fotos salvador/mix.jpg" alt="Etapa 1 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Dois anos de desafios, tecnologia e trabalho em equipa</h5>
+                          <p>Estes são alguns registros da minha jornada nos ultimos dois anos como eletricista de autocarros. Trabalhar na pós-produção exige um olhar clínico e uma capacidade de adaptação constante. Seja interpretando diagramas elétricos, resolvendo avarias ou realizando alterações customizadas, o objetivo é sempre entregar um produto de ótima qualidade. 
+ Nesse setor, o sucesso depende da colaboração com outros profissionais e equipas. Trabalhar lado a lado com diferentes especialidades permite-nos resolver desafios complexos de forma mais ágil. Tenho orgulho de trabalhar tanto as tecnologias tradicionais quanto o futuro da mobilidade elétrica, garantindo, em conjunto com os meus colegas, que cada veículo esteja em total conformidade antes de ganhar as ruas.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                      <button class="tmToggle" type="button" aria-expanded="true" aria-controls="traj-details-1" aria-label="Recolher detalhes da trajetória" onclick="document.querySelector('[aria-controls=\'traj-details-1\']').click(); window.scrollTo({top: this.closest('.tmItem').offsetTop, behavior: 'smooth'});">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(180deg);">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="tmItem" role="listitem">
+                  <div class="tmLeftDate">2021 — 2022</div>
+                  <div class="tmCenter" aria-hidden="true">
+                    <span class="tmDot"></span>
+                    <span class="tmLine"></span>
+                  </div>
+                  <div class="tmCard">
+                    <span class="tmDateMobile">2018 — 2021</span>
+                    <h4>Eletricista</h4>
+                    <div class="tmCompany">@ Solarizar Engenharia l São Paulo, SP - Brasil</div>
+                    <p class="tmDesc">
+                      Como eletricista de sistemas fotovoltaicos, integrei equipes compostas por engenheiros e montadores no planejamento e manutenção de centrais solares. Minha atuação abrangeu a montagem de infraestrutura e componentes elétricos, execução de projetos técnicos, testes de desempenho e a condução de manutenções preventivas e corretivas para garantir a continuidade operacional dos sistemas.
+                    </p>
+                    <div class="tmTags">
+                      <div class="tmTagsList">
+                        <img src="Solar/fotos solar ok/ok solar.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="Solar/fotos solar ok/ok cafe.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="Solar/fotos solar ok/ok desenho.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                      </div>
+                      <button class="tmToggle" type="button" aria-expanded="false" aria-controls="traj-details-2" aria-label="Expandir detalhes da trajetória">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="tmExpand" id="traj-details-2" hidden>
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Solar/fotos solar ok/ok solar.jpg" alt="Registro visual da trajetória profissional">
+                        <div class="tmStoryInfo">
+                          <h5>Instalação em Telhado Industrial</h5>
+                          <p>Trabalho em equipa na execução de um projeto industrial de grande porte. Instalações deste nível exigem um rigor técnico elevado e coordenação total entre os profissionais. Além da montagem técnica, o foco na segurança e na organização da área de trabalho foi essencial para cumprirmos os prazos em estruturas complexas.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Solar/fotos solar ok/ok cafe.jpg" alt="Etapa 3 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Usinas em Solo/Área Rural</h5>
+                          <p>Experiência em instalações de solo em áreas rurais e urbanas. Cada terreno apresenta um desafio diferente de estrutura e cablagem. Trabalhar nestes projetos reforçou a minha capacidade de adaptação e a importância da cooperação mútua na equipa para superar obstáculos geográficos e técnicos, entregando sempre uma instalação limpa e funcional.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Solar/fotos solar ok/ok desenho.jpg" alt="Etapa 2 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Desenho 3D</h5>
+                          <p>Embora a minha função principal fosse a execução elétrica, utilizei a modelação 3D como ferramenta estratégica. Criar esses desenhos permitia à equipa prever com exatidão os materiais e ferramentas necessários, reduzindo o desperdício e otimizando o tempo de instalação.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Solar/fotos solar ok/ok preventiva.jpg" alt="Etapa 4 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Manutenção Preventiva</h5>
+                          <p>A eficiência de um sistema solar reside nos detalhes. Aqui, realizo uma manutenção preventiva num inversor, garantindo a limpeza e a ventilação adequadas para evitar falhas.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                      <button class="tmToggle" type="button" aria-expanded="true" aria-controls="traj-details-2" aria-label="Recolher detalhes da trajetória" onclick="document.querySelector('[aria-controls=\'traj-details-2\']').click(); window.scrollTo({top: this.closest('.tmItem').offsetTop, behavior: 'smooth'});">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(180deg);">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="tmItem" role="listitem">
+                  <div class="tmLeftDate">2019 — 2021</div>
+                  <div class="tmCenter" aria-hidden="true">
+                    <span class="tmDot"></span>
+                    <span class="tmLine"></span>
+                  </div>
+                  <div class="tmCard">
+                    <span class="tmDateMobile">2016 — 2018</span>
+                    <h4>Eletricista</h4>
+                    <div class="tmCompany">@ AquaNobile Serviços l Belo Horizonte, MG - Brasil</div>
+                    <p class="tmDesc">
+                      Durante esse período como eletricista, realizei atividades de dimensionamento, instalação 
+ e manutenção de quadros de comando para o controlo e automação de sistemas de 
+ captação e tratamento de água. Garanti que todos os equipamentos estivessem em 
+ perfeitas condições de funcionamento, implementando medidas de segurança elétrica, 
+ realizando testes de desempenho e resolvendo problemas técnicos. Além disso, executei 
+ manutenção preventiva e corretiva dos equipamentos para garantir que estivessem 
+ sempre em pleno funcionamento e atendendo aos padrões de qualidade exigidos.
+                    </p>
+                    <div class="tmTags">
+                      <div class="tmTagsList">
+                        <img src="Aquanobile/ok ro.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="Aquanobile/ok phagua.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/1 app.jpeg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                      </div>
+                      <button class="tmToggle" type="button" aria-expanded="false" aria-controls="traj-details-3" aria-label="Expandir detalhes da trajetória">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="tmExpand" id="traj-details-3" hidden>
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/ok ro.jpg" alt="Etapa inicial da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>O resultado final</h5>
+                          <p>A maior satisfação da profissão: o momento em que o sistema entra em operação. Ver a água fluindo com pureza é o resultado de um trabalho técnico rigoroso em sistemas de captação, garantindo o abastecimento com eficiência e qualidade.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/ok quadros trabalho.jpg" alt="Etapa 2 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Montagem e Diagnósticos</h5>
+                          <p>Visão geral do dia a dia técnico: desde o dimensionamento e montagem de quadros de comando até diagnósticos com instrumentos de medição. Atuação completa em montagem, testes de desempenho e resolução de problemas em sistemas de automação.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/ok perfuration.jpg" alt="Etapa 3 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Acompanhamento de Campo (Perfuração)</h5>
+                          <p>Presença em campo acompanhando a perfuração de poços artesianos. Essa vivência prática me inspirou a idealizar um sistema de monitoramento online para acompanhar o progresso da obra em tempo real</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <div class="tmStoryInfo">
+                          <h5>Título da etapa 4</h5>
+                          <p>Complete com um quarto momento para fechar as 4 imagens deste bloco.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/ok phagua.jpg" alt="Etapa 5 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Alarme para Alterações Quimica na Água</h5>
+                          <p>Meu primeiro projeto dentro da empresa . Desenvolvi este sistema para o monitoramento contínuo de pH, integrando uma lógica de automação que dispara um alerta sonoro imediato a qualquer variação. Um marco importante que uniu meu aprendizado teórico à prática de campo.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/ok quadro de ferramentas.jpg" alt="Etapa 6 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Quadro de Ferramentas</h5>
+                          <p>Fiz esse suporte com madeira reaproveitada para facilitar a rotina e cuidar melhor das ferramentas.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="tmStoryList">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/1 app.jpeg" alt="App - imagem 1">
+                        <div class="tmStoryInfo">
+                          <h5>Visualização do Subsolo e Perfuração</h5>
+                          <p>Embora o acompanhamento de perfuração utilize tradicionalmente relatórios manuais, decidi inovar desenvolvendo um sistema digital via ferramentas no-code. O objetivo foi permitir que tanto o cliente quanto o escritório acompanhassem, em tempo real e de qualquer lugar, o progresso da obra.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/2 app jpg.jpg" alt="App - imagem 2">
+                        <div class="tmStoryInfo">
+                          <h5>Dashboard de Métricas e Análise de Desempenho</h5>
+                          <p>O que antes era anotado em papéis, transformei em um painel interativo. O sistema destaca a produtividade por haste, permitindo visualizar de forma clara os desafios técnicos encontrados no subsolo e a proximidade do objetivo final. O gráfico cruza a numeração das hastes (horizontal) com o tempo de execução (vertical). Picos no gráfico representam terrenos de maior resistência, transformando o tempo de perfuração em um mapeamento geológico digital.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/4 appb jpeg.jpg" alt="App - imagem 3">
+                        <div class="tmStoryInfo">
+                          <h5>Geolocalização do Projeto</h5>
+                          <p>Georreferenciamento da Obra: Integração de API de mapas para localização exata do ponto de perfuração, garantindo o registro histórico do ativo para a empresa.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/3 app.jpeg" alt="App - imagem 4">
+                        <div class="tmStoryInfo">
+                          <h5>Registro Fotográfico e Evolução da Obra</h5>
+                          <p>Diário de Obra Digital: O registro fotográfico diário garante que os procedimentos estejam sendo seguidos, facilitando a fiscalização pela equipe de engenharia no escritório.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                      <button class="tmToggle" type="button" aria-expanded="true" aria-controls="traj-details-3" aria-label="Recolher detalhes da trajetória" onclick="document.querySelector('[aria-controls=\'traj-details-3\']').click(); window.scrollTo({top: this.closest('.tmItem').offsetTop, behavior: 'smooth'});">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(180deg);">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="tmItem" role="listitem">
+                  <div class="tmLeftDate">2011 — 2014</div>
+                  <div class="tmCenter" aria-hidden="true">
+                    <span class="tmDot"></span>
+                    <span class="tmLine"></span>
+                  </div>
+                  <div class="tmCard">
+                    <span class="tmDateMobile">2018 — 2020</span>
+                    <h4>Técnico de Produção</h4>
+                    <div class="tmCompany">@ Procter & Gamble l São Paulo, SP - Brasil</div>
+                    <p class="tmDesc">
+                      Durante o período em que trabalhei na área de operação e manutenção de equipamentos 
+ de envase de líquidos, rotuladoras e empacotadoras, tive a oportunidade de adquirir 
+ habilidades valiosas na operação de equipamentos como torno mecânico, fresas e 
+ soldadura. Para além disso, realizei diversas atividades de manutenção e reparação em 
+ equipamentos de envase e embalagem de líquidos, incluindo diagnóstico de falhas, ajustes 
+ e substituição de peças. Esta experiência permitiu-me desenvolver uma visão ampla do 
+ processo produtivo e tornar-me um profissional mais completo e capacitado para lidar 
+ com desafios técnicos.
+                    </p>
+                    <div class="tmTags">
+                      <div class="tmTagsList">
+                        <img src="P&amp;G/ok ro pg.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="P&amp;G/ok supor bobi2.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                        <img src="P&amp;G/ok sleeve1.jpg" alt="" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.18); cursor: pointer;" onclick="this.parentElement.nextElementSibling.click()">
+                      </div>
+                      <button class="tmToggle" type="button" aria-expanded="false" aria-controls="traj-details-4" aria-label="Expandir detalhes da trajetória">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="tmExpand" id="traj-details-4" hidden>
+                    <div class="tmStoryList" data-max-slides="1">
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="P&amp;G/ok ro pg.jpg" alt="Nova etapa 1 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Início da Trajetória Profissional</h5>
+                          <p>Início da trajetória profissional no chão de fábrica após o estágio. Atuação direta na operação de diversas máquinas para domínio completo do fluxo produtivo e das rotinas operacionais.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="P&amp;G/ok supor bobi2.jpg" alt="Nova etapa 2 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Processo de Usinagem e Fabricação</h5>
+                          <p>Tenho uma gratidão enorme por essa etapa da minha carreira, onde pude aplicar na prática os fundamentos do meu curso Técnico em Mecatrônica. Fiquei muito honrado ao ser destacado pela empresa não apenas para operar, mas também para assumir responsabilidades na manutenção dos equipamentos. Foi nesse cenário que identifiquei que as quebras frequentes dos suportes plásticos de rótulos causavam altos custos e paradas na linha. Com iniciativa, projetei e fabriquei novos suportes em metal utilizando sobras de materiais da própria empresa, unindo teoria e prática para resolver um problema real de produção.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="P&amp;G/ok sleeve1.jpg" alt="Nova etapa 3 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Manutenção Corretiva</h5>
+                          <p>Em um ambiente de alta demanda (quase 24 horas por dia), o desgaste natural resultou nesta avaria. Disco da bobina de rótulos danificado. Comprometendo a capacidade de produção do equipamento.</p>
+                        </div>
+                      </article>
+                      <article class="tmStoryItem">
+                        <img class="tmStoryPhoto" src="P&amp;G/ok pino1.jpg" alt="Nova etapa 4 da trajetória">
+                        <div class="tmStoryInfo">
+                          <h5>Manutenção Corretiva</h5>
+                          <p>Registrei essa imagem do inicio da fabricação de um manípulo de aperto para uma mesa de emendas de bobinas de rótulos. O manípulo original era de plastico e não resistiu ao uso diário e danificou. Decidi fabricar um novo em metal para que a solução fosse definitiva.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                      <button class="tmToggle" type="button" aria-expanded="true" aria-controls="traj-details-4" aria-label="Recolher detalhes da trajetória" onclick="document.querySelector('[aria-controls=\'traj-details-4\']').click(); window.scrollTo({top: this.closest('.tmItem').offsetTop, behavior: 'smooth'});">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(180deg);">
+                          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel" id="projetos" aria-label="Projetos em destaque">
+              <div class="sectionTitle">
+                <h3>Projetos e Hobbies</h3>
+                <p>Alguns Projetos</p>
+              </div>
+
+              <div class="workList">
+                <article class="workCard">
+                  <div class="workMedia" aria-hidden="true">
+                    <img src="Stick Artes/ok novo fundo affinity.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div>
+                    <h4>Boeing 747</h4>
+                    <p>Alguns anos atrás, criei um canal no <a href="https://youtu.be/NsGZjJuAPto" target="_blank" rel="noopener noreferrer" style="color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;">YouTube</a> ensinando a montar esses modelos usando palitos.</p>
+                  </div>
+                </article>
+
+                <article class="workCard">
+                  <div class="workMedia" aria-hidden="true">
+                    <img src="Stick Artes/ok ponte.jpeg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div>
+                    <h4>Ponte Estaiada</h4>
+                    <p>Essa é uma ponte bem conhecida em São Paulo, Brasil, cidade em que morei alguns anos atrás. Ela se chama Ponte Octávio Frias de Oliveira e foi toda construída com palitinhos. Essa também ensino como fazer no <a href="https://youtu.be/yaK7Xw0VOIo" target="_blank" rel="noopener noreferrer" style="color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;">YouTube</a>.</p>
+                  </div>
+                </article>
+
+                <article class="workCard">
+                  <div class="workMedia" aria-hidden="true">
+                    <img src="Stick Artes/ok guitar.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div>
+                    <h4>Violão</h4>
+                    <p>Apesar desse projeto não ter ido para o YouTube, foi um dos que mais gostei. Ele ficou como item de decoração na minha mesa.</p>
+                  </div>
+                </article>
+
+                <article class="workCard">
+                  <div class="workMedia" aria-hidden="true">
+                    <img src="Luz Rítmica/ok luz 1.jpg" alt="" data-lightbox-gallery="luz-ritmica" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div>
+                    <h4>Luz Rítmica</h4>
+                    <p>Em 2011, depois de me formar em Mecatrônica, fiz esse kit para estudantes e entusiastas aprenderem a montar placa eletrônica. Esse projeto se chama luz rítmica, e as luzes piscam no ritmo do som ambiente.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </section>
+
+          <section class="achievements" aria-label="Conquistas recentes">
+            <div class="sectionTitle">
+              <h3>Conquistas Pessoais</h3>
+              <p>Prêmios e Conquistas</p>
+            </div>
+
+            <div class="achGrid" role="list">
+              <article class="achCard" role="listitem">
+                <div class="achIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M8 4h8v3a4 4 0 01-8 0V4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M6 6H4a2 2 0 002 2h1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M18 6h2a2 2 0 01-2 2h-1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 11v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M9 19h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M8 15h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <strong>2025 • Prêmio / Kaizen</strong>
+                <small>Reconhecimento pelos Kaizens implementados e pela participação ativa na melhoria contínua e geração de valor.</small>
+              </article>
+
+              <article class="achCard" role="listitem">
+                <div class="achIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M10 9l6 3-6 3V9z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <strong>2017 • 500k Views</strong>
+                <small>Criação de um vídeo tutorial ensinando a montar um 747 com palitos, compartilhando conhecimento de forma criativa.</small>
+              </article>
+
+              <article class="achCard" role="listitem">
+                <div class="achIcon" aria-hidden="true">
+                  <img src="Icone Engrenagem/ok engr 2.png" alt="" style="width: 22px; height: 22px; object-fit: contain;">
+                </div>
+                <strong>2013 • Peça de Usinagem</strong>
+                <small>Desenvolvimento de uma peça de usinagem de alta precisão que gerou aumento de salário pelo impacto e resultado.</small>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <footer class="footer" id="contato" aria-label="Rodapé e contato">
+          <div class="social" aria-label="Redes sociais">
+            <a class="iconBtn" href="https://www.linkedin.com/in/andrade-rodrigo2023" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.5 9.5V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6.5 6.2h0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M10.5 18v-5.1c0-1.9 1.2-3.4 3.2-3.4s3.3 1.3 3.3 3.6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5 12c.4-1.4 1.7-2.5 3.3-2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a class="iconBtn" href="#" data-open-contact-modal aria-label="E-mail">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4.5 7.5l7.1 5.1c.9.6 1.9.6 2.8 0L21.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.5 18.5h11c2 0 4-1.6 4-3.6V9.1c0-2-2-3.6-4-3.6h-11c-2 0-4 1.6-4 3.6v5.8c0 2 2 3.6 4 3.6z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="footRight">
+            <div><strong>Contato</strong>: <a href="mailto:rodrigo.rdgk@gmail.com">rodrigo.rdgk@gmail.com</a></div>
+            <div>© <span id="year"></span> <span id="footName">Rodrigo Santos</span></div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <div class="tmLightbox" id="tmLightbox" hidden>
+      <div class="tmLightboxInner" role="dialog" aria-modal="true" aria-label="Imagem em tela cheia">
+        <button class="tmLightboxClose" type="button" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="tmLightboxNav tmLightboxPrev" type="button" aria-label="Imagem anterior" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="tmLightboxNav tmLightboxNext" type="button" aria-label="Próxima imagem" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <img class="tmLightboxImg" alt="">
+      </div>
+    </div>
+
+    <div class="contactModal" id="contactModal" hidden>
+      <div class="contactModalCard" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+        <button class="contactModalClose" id="contactModalClose" type="button" aria-label="Fechar popup de contato">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <div class="contactForm" id="contactForm">
+          <div class="contactEmailBox">
+            <div class="contactEmailText">
+              <strong>Meu e-mail</strong>
+              <div class="contactEmailValue" id="contactEmailValue">rodrigo.rdgk@gmail.com</div>
+            </div>
+            <button class="btn contactCopyBtn" id="copyContactEmail" type="button">
+              <span class="btnLabel">Copiar e-mail</span>
+            </button>
+          </div>
+
+          <div>
+            <div class="contactFeedback" id="contactFeedback" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const year = new Date().getFullYear();
+      $("#year").textContent = year;
+      const languageMenu = document.getElementById("languageMenu");
+      const languageButton = document.getElementById("languageButton");
+      const languageLabel = document.getElementById("languageLabel");
+      const languageOptions = Array.from(document.querySelectorAll(".langMenuOption"));
+      const languageLabels = {
+        es: "ES",
+        pt: "PT",
+        en: "EN",
+      };
+      let currentLang = "es";
+
+      const i18n = {
+        es: {
+          htmlLang: "es-ES",
+          metaTitle: "Curriculum | Portafolio",
+          navAria: "Navegacion",
+          sectionAria: {
+            cv: "Curriculum",
+            intro: "Presentacion",
+            highlights: "Destacados",
+            opportunities: "Destacado sobre oportunidades en Espana",
+            profile: "Perfil",
+            main: "Contenido principal",
+            timeline: "Trayectoria",
+            projects: "Proyectos destacados",
+            achievements: "Logros recientes",
+            footer: "Pie de pagina y contacto",
+            social: "Redes sociales",
+          },
+          brandSubtitle: "Curriculum • Portafolio",
+          nav: ["Sobre mi", "Trayectoria", "Proyectos", "Contacto"],
+          kickerStrong: "Disponible",
+          kickerText: "para oportunidades",
+          heroTitle: "Soluciones Practicas Para Desafios Tecnicos",
+          heroSubtitle:
+            "<strong>Tecnico en Mecatronica</strong> Actuacion en montaje y mantenimiento de cuadros electricos y sistemas electromecanicos, desde flotas electricas hasta plantas solares. Garantizando conformidad tecnica, seguridad y maxima operatividad.",
+          ctas: ["Ver Trayectoria", "Correo"],
+          pills: [
+            "Mecatronica • Mantenimiento",
+            "Mecanizado • Fabricacion",
+            "Electricista • Montador de Cuadros",
+          ],
+          noticeP1:
+            "Soy de Brasil, vivo y trabajo en Portugal desde hace tres anos. Busco una oportunidad para vivir y trabajar en Espana:",
+          noticeP2:
+            "Instaladores electricistas esta en el <strong style=\"display: inline; margin: 0;\">Catalogo de Ocupaciones de Dificil Cobertura.</strong> <svg viewBox=\"0 0 24 16\" aria-hidden=\"true\" style=\"width: 18px; height: 12px; vertical-align: -1px; margin-left: 6px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,0.16);\"><rect width=\"24\" height=\"16\" fill=\"#c1121f\"/><rect y=\"4\" width=\"24\" height=\"8\" fill=\"#fbbf24\"/></svg>",
+          roleBadge: "Tecnico",
+          downloadCv: "Descargar CV",
+          sectionTitleH3: ["Mi Trayectoria", "Proyectos y Hobbies", "Logros Personales"],
+          sectionTitleP: ["Recorrido Profesional", "Algunos Proyectos", "Premios y Logros"],
+          timelineDates: ["2023 — Actualidad", "2021 — 2022", "2019 — 2021", "2011 — 2014"],
+          timelineDatesMobile: ["2023 - 2026 — Actualidad", "2018 — 2021", "2016 — 2018", "2018 — 2020"],
+          timelineRoles: ["Electricista Automotriz", "Electricista", "Electricista", "Tecnico de Produccion"],
+          timelineCompanies: [
+            "@ CaetanoBus l Vila Nova de Gaia, - Portugal",
+            "@ Solarizar Engenharia l Sao Paulo, SP - Brasil",
+            "@ AquaNobile Servicos l Belo Horizonte, MG - Brasil",
+            "@ Procter & Gamble l Sao Paulo, SP - Brasil",
+          ],
+          timelineDesc: [
+            "Trabajo desde hace tres anos en CaetanoBus como electricista de autobuses electricos y diesel. Empece en la linea de produccion, realizando montaje de sistemas de alta tension y comunicacion, garantizando calidad y seguridad. Actualmente actuo en postproduccion con diagnostico, correccion de averias y pruebas completas de los vehiculos.",
+            "Como electricista de sistemas fotovoltaicos, integre equipos con ingenieros y montadores en planificacion y mantenimiento de plantas solares. Mi actuacion incluyo montaje de infraestructura y componentes electricos, ejecucion de proyectos tecnicos, pruebas de rendimiento y mantenimiento preventivo y correctivo.",
+            "En este periodo realice dimensionamiento, instalacion y mantenimiento de cuadros de mando para control y automatizacion de sistemas de captacion y tratamiento de agua, ejecutando pruebas de rendimiento y resolucion de problemas tecnicos con foco en seguridad y calidad.",
+            "Durante este periodo en operacion y mantenimiento de equipos de llenado, etiquetado y empaque, desarrolle habilidades en torno, fresado y soldadura. Tambien realice mantenimiento y reparacion, diagnostico de fallas y sustitucion de piezas.",
+          ],
+          projectTitles: ["Boeing 747", "Puente Atirantado", "Guitarra", "Luz Ritmica"],
+          projectDesc: [
+            "Hace algunos anos cree un canal en <a href=\"https://youtu.be/NsGZjJuAPto\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;\">YouTube</a> ensenando a montar estos modelos con palitos.",
+            "Este es un puente muy conocido en Sao Paulo, Brasil, ciudad donde vivi algunos anos. Se llama Puente Octavio Frias de Oliveira y fue construido totalmente con palitos. Tambien enseno como hacerlo en <a href=\"https://youtu.be/yaK7Xw0VOIo\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;\">YouTube</a>.",
+            "Aunque este proyecto no fue al YouTube, fue uno de los que mas me gusto. Quedo como elemento de decoracion en mi mesa.",
+            "En 2011, despues de graduarme en Mecatronica, cree este kit para estudiantes y entusiastas aprender montaje de placas electronicas. Este proyecto se llama luz ritmica y las luces parpadean al ritmo del sonido ambiente.",
+          ],
+          achStrong: ["2025 • Premio / Kaizen", "2017 • 500k Vistas", "2013 • Pieza de Mecanizado"],
+          achSmall: [
+            "Reconocimiento por los Kaizens implementados y por la participacion activa en la mejora continua y la generacion de valor.",
+            "Creacion de un video tutorial ensenando a montar un 747 con palitos, compartiendo conocimiento de forma creativa.",
+            "Desarrollo de una pieza de mecanizado de alta precision que genero aumento salarial por su impacto y resultado.",
+          ],
+          footerContact: "Contacto",
+          lightboxAria: {
+            dialog: "Imagen en pantalla completa",
+            close: "Cerrar",
+            prev: "Imagen anterior",
+            next: "Imagen siguiente",
+          },
+          contact: {
+            closeAria: "Cerrar popup de contacto",
+            labelMessage: "Deja aqui un mensaje",
+            placeholderMessage: "Escribe un mensaje sobre la oportunidad, vacante o propuesta.",
+            labelReply: "Correo u otro contacto",
+            placeholderReply: "ejemplo@empresa.com o telefono",
+            myEmail: "Mi correo",
+            copy: "Copiar correo",
+            send: "Enviar",
+            copyOk: "Correo copiado con exito.",
+            copyFail: "No fue posible copiar automaticamente en este navegador.",
+            missing: "Completa el mensaje y el contacto para enviar.",
+            subject: "Contacto de empresa interesada en el curriculum",
+            bodyPrefix: "Mensaje de la empresa:",
+            bodyReply: "Contacto para respuesta:",
+            opening: "Abriendo el envio del mensaje.",
+          },
+        },
+        pt: {
+          htmlLang: "pt-BR",
+          metaTitle: "Currículo | Portfólio",
+          navAria: "Navegação",
+          sectionAria: {
+            cv: "Currículo",
+            intro: "Apresentação",
+            highlights: "Destaques",
+            opportunities: "Destaque sobre oportunidades na Espanha",
+            profile: "Perfil",
+            main: "Conteúdo principal",
+            timeline: "Trajetória",
+            projects: "Projetos em destaque",
+            achievements: "Conquistas recentes",
+            footer: "Rodapé e contato",
+            social: "Redes sociais",
+          },
+          brandSubtitle: "Currículo • Portfólio",
+          nav: ["Sobre", "Trajetória", "Projetos", "Contato"],
+          kickerStrong: "Disponível",
+          kickerText: "para oportunidades",
+          heroTitle: "Soluções Práticas Para Desafios Técnicos",
+          heroSubtitle:
+            "<strong>Técnico em Mecatrônica</strong> Atuação em montagem e manutenção de quadros elétricos e sistemas eletromecânicos, de frotas elétricas a centrais solares. Garantindo conformidade técnica, segurança e máxima operacionalidade.",
+          ctas: ["Ver Trajetória", "E-mail"],
+          pills: [
+            "Mecatrônica • Manutenção",
+            "Usinagem • Fabricação",
+            "Eletricista • Montador de Quadros",
+          ],
+          noticeP1:
+            "Sou do Brasil, vivo e trabalho em Portugal há três anos. Estou a procura de uma oportunidade para viver e trabalhar na Espanha:",
+          noticeP2:
+            "Instaladores eletricistas está no <strong style=\"display: inline; margin: 0;\">Catálogo de Ocupaciones de Dificil Cobertura.</strong> <svg viewBox=\"0 0 24 16\" aria-hidden=\"true\" style=\"width: 18px; height: 12px; vertical-align: -1px; margin-left: 6px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,0.16);\"><rect width=\"24\" height=\"16\" fill=\"#c1121f\"/><rect y=\"4\" width=\"24\" height=\"8\" fill=\"#fbbf24\"/></svg>",
+          roleBadge: "Técnico",
+          downloadCv: "Baixar CV",
+          sectionTitleH3: ["Minha Trajetória", "Projetos e Hobbies", "Conquistas Pessoais"],
+          sectionTitleP: ["Percurso Profissional", "Alguns Projetos", "Prêmios e Conquistas"],
+          timelineDates: ["2023 — Presente", "2021 — 2022", "2019 — 2021", "2011 — 2014"],
+          timelineDatesMobile: ["2023 - 2026 — Presente", "2018 — 2021", "2016 — 2018", "2018 — 2020"],
+          timelineRoles: ["Eletricista de Auto", "Eletricista", "Eletricista", "Técnico de Produção"],
+          timelineCompanies: [
+            "@ CaetanoBus l Vila Nova de Gaia, - Portugal",
+            "@ Solarizar Engenharia l São Paulo, SP - Brasil",
+            "@ AquaNobile Serviços l Belo Horizonte, MG - Brasil",
+            "@ Procter & Gamble l São Paulo, SP - Brasil",
+          ],
+          timelineDesc: [
+            "Trabalho há três anos na CaetanoBus, como eletricista de autocarros elétricos e diesel. Iniciei na linha de produção, realizando montagem de sistemas de alta tensão e comunicação, garantindo qualidade e segurança. Atualmente, atuo na fase de pós-produção, com diagnóstico e correção de avarias e testes completos dos veículos, incluindo sistemas de iluminação, câmaras, climatização, comunicação e carregamento elétrico.",
+            "Como eletricista de sistemas fotovoltaicos, integrei equipes compostas por engenheiros e montadores no planejamento e manutenção de centrais solares. Minha atuação abrangeu a montagem de infraestrutura e componentes elétricos, execução de projetos técnicos, testes de desempenho e a condução de manutenções preventivas e corretivas para garantir a continuidade operacional dos sistemas.",
+            "Durante esse período como eletricista, realizei atividades de dimensionamento, instalação e manutenção de quadros de comando para o controlo e automação de sistemas de captação e tratamento de água. Garanti que todos os equipamentos estivessem em perfeitas condições de funcionamento, implementando medidas de segurança elétrica, realizando testes de desempenho e resolvendo problemas técnicos.",
+            "Durante o período em que trabalhei na área de operação e manutenção de equipamentos de envase de líquidos, rotuladoras e empacotadoras, tive a oportunidade de adquirir habilidades valiosas na operação de equipamentos como torno mecânico, fresas e soldadura. Para além disso, realizei diversas atividades de manutenção e reparação em equipamentos de envase e embalagem de líquidos.",
+          ],
+          projectTitles: ["Boeing 747", "Ponte Estaiada", "Violão", "Luz Rítmica"],
+          projectDesc: [
+            "Alguns anos atrás, criei um canal no <a href=\"https://youtu.be/NsGZjJuAPto\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;\">YouTube</a> ensinando a montar esses modelos usando palitos.",
+            "Essa é uma ponte bem conhecida em São Paulo, Brasil, cidade em que morei alguns anos atrás. Ela se chama Ponte Octávio Frias de Oliveira e foi toda construída com palitinhos. Essa também ensino como fazer no <a href=\"https://youtu.be/yaK7Xw0VOIo\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;\">YouTube</a>.",
+            "Apesar desse projeto não ter ido para o YouTube, foi um dos que mais gostei. Ele ficou como item de decoração na minha mesa.",
+            "Em 2011, depois de me formar em Mecatrônica, fiz esse kit para estudantes e entusiastas aprenderem a montar placa eletrônica. Esse projeto se chama luz rítmica, e as luzes piscam no ritmo do som ambiente.",
+          ],
+          achStrong: ["2025 • Prêmio / Kaizen", "2017 • 500k Views", "2013 • Peça de Usinagem"],
+          achSmall: [
+            "Reconhecimento pelos Kaizens implementados e pela participação ativa na melhoria contínua e geração de valor.",
+            "Criação de um vídeo tutorial ensinando a montar um 747 com palitos, compartilhando conhecimento de forma criativa.",
+            "Desenvolvimento de uma peça de usinagem de alta precisão que gerou aumento de salário pelo impacto e resultado.",
+          ],
+          footerContact: "Contato",
+          lightboxAria: {
+            dialog: "Imagem em tela cheia",
+            close: "Fechar",
+            prev: "Imagem anterior",
+            next: "Próxima imagem",
+          },
+          contact: {
+            closeAria: "Fechar popup de contato",
+            labelMessage: "Deixe Aqui uma Mensagem",
+            placeholderMessage: "Escreva uma mensagem sobre a oportunidade, vaga ou proposta.",
+            labelReply: "E-mail ou outro contato",
+            placeholderReply: "exemplo@empresa.com ou telefone",
+            myEmail: "Meu e-mail",
+            copy: "Copiar e-mail",
+            send: "Enviar",
+            copyOk: "E-mail copiado com sucesso.",
+            copyFail: "Nao foi possivel copiar automaticamente neste navegador.",
+            missing: "Preencha a mensagem e o contato para envio.",
+            subject: "Contato de empresa interessada no curriculo",
+            bodyPrefix: "Mensagem da empresa:",
+            bodyReply: "Contato para retorno:",
+            opening: "Abrindo o envio da mensagem.",
+          },
+        },
+        en: {
+          htmlLang: "en",
+          metaTitle: "Resume | Portfolio",
+          navAria: "Navigation",
+          sectionAria: {
+            cv: "Resume",
+            intro: "Introduction",
+            highlights: "Highlights",
+            opportunities: "Highlight about opportunities in Spain",
+            profile: "Profile",
+            main: "Main content",
+            timeline: "Career path",
+            projects: "Featured projects",
+            achievements: "Recent achievements",
+            footer: "Footer and contact",
+            social: "Social links",
+          },
+          brandSubtitle: "Resume • Portfolio",
+          nav: ["About", "Career", "Projects", "Contact"],
+          kickerStrong: "Available",
+          kickerText: "for opportunities",
+          heroTitle: "Practical Solutions For Technical Challenges",
+          heroSubtitle:
+            "<strong>Mechatronics Technician</strong> Experience in assembling and maintaining electrical panels and electromechanical systems, from electric fleets to solar plants. Ensuring technical compliance, safety and top operational performance.",
+          ctas: ["View Career", "Email"],
+          pills: [
+            "Mechatronics • Maintenance",
+            "Machining • Fabrication",
+            "Electrician • Panel Builder",
+          ],
+          noticeP1:
+            "I am from Brazil, and I have been living and working in Portugal for three years. I am looking for an opportunity to live and work in Spain:",
+          noticeP2:
+            "Electrical installers are listed in the <strong style=\"display: inline; margin: 0;\">Catalog of Hard-to-Fill Occupations.</strong> <svg viewBox=\"0 0 24 16\" aria-hidden=\"true\" style=\"width: 18px; height: 12px; vertical-align: -1px; margin-left: 6px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,0.16);\"><rect width=\"24\" height=\"16\" fill=\"#c1121f\"/><rect y=\"4\" width=\"24\" height=\"8\" fill=\"#fbbf24\"/></svg>",
+          roleBadge: "Technician",
+          downloadCv: "Download CV",
+          sectionTitleH3: ["My Career Path", "Projects and Hobbies", "Personal Achievements"],
+          sectionTitleP: ["Professional Journey", "Some Projects", "Awards and Achievements"],
+          timelineDates: ["2023 — Present", "2021 — 2022", "2019 — 2021", "2011 — 2014"],
+          timelineDatesMobile: ["2023 - 2026 — Present", "2018 — 2021", "2016 — 2018", "2018 — 2020"],
+          timelineRoles: ["Automotive Electrician", "Electrician", "Electrician", "Production Technician"],
+          timelineCompanies: [
+            "@ CaetanoBus l Vila Nova de Gaia, - Portugal",
+            "@ Solarizar Engenharia l Sao Paulo, SP - Brazil",
+            "@ AquaNobile Servicos l Belo Horizonte, MG - Brazil",
+            "@ Procter & Gamble l Sao Paulo, SP - Brazil",
+          ],
+          timelineDesc: [
+            "I have worked at CaetanoBus for three years as an electrician for electric and diesel buses. I started on the production line assembling high-voltage and communication systems, ensuring quality and safety. Today I work in post-production with diagnostics, fault correction and full vehicle testing.",
+            "As a photovoltaic systems electrician, I worked with teams of engineers and installers in planning and maintenance of solar plants. My work included assembly of infrastructure and electrical components, technical project execution, performance testing and preventive/corrective maintenance.",
+            "During this period I carried out sizing, installation and maintenance of control panels for water capture and treatment system automation. I ensured all equipment operated properly, implementing electrical safety measures, performance tests and technical troubleshooting.",
+            "While working with operation and maintenance of liquid filling, labeling and packaging equipment, I developed skills in lathe, milling and welding. I also performed maintenance and repairs, fault diagnosis and parts replacement.",
+          ],
+          projectTitles: ["Boeing 747", "Cable-Stayed Bridge", "Acoustic Guitar", "Rhythmic Light"],
+          projectDesc: [
+            "A few years ago I created a <a href=\"https://youtu.be/NsGZjJuAPto\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;\">YouTube</a> channel teaching how to build these models with sticks.",
+            "This is a famous bridge in Sao Paulo, Brazil, where I lived for some years. It is called Octavio Frias de Oliveira Bridge and it was built entirely with craft sticks. I also teach how to build it on <a href=\"https://youtu.be/yaK7Xw0VOIo\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--accent3); text-decoration: underline; text-underline-offset: 2px; font-weight: 500;\">YouTube</a>.",
+            "Although this project did not go to YouTube, it was one of my favorites. It became a decoration item on my desk.",
+            "In 2011, after graduating in Mechatronics, I created this kit so students and enthusiasts could learn PCB assembly. This project is called rhythmic light and the LEDs blink to ambient sound.",
+          ],
+          achStrong: ["2025 • Award / Kaizen", "2017 • 500k Views", "2013 • Machining Part"],
+          achSmall: [
+            "Recognition for implemented Kaizens and active participation in continuous improvement and value generation.",
+            "Created a tutorial video teaching how to build a 747 with sticks, sharing knowledge in a creative way.",
+            "Developed a high-precision machined part that led to salary growth due to impact and results.",
+          ],
+          footerContact: "Contact",
+          lightboxAria: {
+            dialog: "Full-screen image",
+            close: "Close",
+            prev: "Previous image",
+            next: "Next image",
+          },
+          contact: {
+            closeAria: "Close contact popup",
+            labelMessage: "Leave a message here",
+            placeholderMessage: "Write a message about the opportunity, role or proposal.",
+            labelReply: "Email or another contact",
+            placeholderReply: "example@company.com or phone",
+            myEmail: "My email",
+            copy: "Copy email",
+            send: "Send",
+            copyOk: "Email copied successfully.",
+            copyFail: "Could not copy automatically in this browser.",
+            missing: "Please fill in the message and contact before sending.",
+            subject: "Contact from company interested in the resume",
+            bodyPrefix: "Company message:",
+            bodyReply: "Reply contact:",
+            opening: "Opening message delivery.",
+          },
+        },
+      };
+
+      const setText = (selector, value) => {
+        const el = document.querySelector(selector);
+        if (el && typeof value === "string") el.textContent = value;
+      };
+
+      const setHTML = (selector, value) => {
+        const el = document.querySelector(selector);
+        if (el && typeof value === "string") el.innerHTML = value;
+      };
+
+      const setTextList = (selector, values) => {
+        if (!Array.isArray(values)) return;
+        document.querySelectorAll(selector).forEach((el, i) => {
+          if (typeof values[i] === "string") el.textContent = values[i];
+        });
+      };
+
+      const setHTMLList = (selector, values) => {
+        if (!Array.isArray(values)) return;
+        document.querySelectorAll(selector).forEach((el, i) => {
+          if (typeof values[i] === "string") el.innerHTML = values[i];
+        });
+      };
+
+      const storyTranslations = {
+        "fotos salvador/ok working.jpg": {
+          es: {
+            title: "Instalacion e Integracion de Sistemas de Alta Tension",
+            desc: "En el primer ano fui asignado al area de instalacion de sistemas de potencia en autobuses electricos, participando en el montaje e integracion de componentes de alta tension con foco en seguridad, calidad y fiabilidad.",
+          },
+          en: {
+            title: "High-Voltage Systems Installation and Integration",
+            desc: "In my first year, I was assigned to high-voltage power systems installation in electric buses, working on assembly and integration with strong focus on safety, quality and reliability.",
+          },
+        },
+        "fotos salvador/ok circuit.jpg": {
+          es: {
+            title: "Potencia, Control y Calidad",
+            desc: "Es impresionante observar el nivel de ingenieria aplicado en sistemas de potencia, donde cada detalle garantiza seguridad, eficiencia y rendimiento.",
+          },
+          en: {
+            title: "Power, Control and Quality",
+            desc: "It is impressive to see the engineering quality in power systems, where every detail is designed for safety, efficiency and performance.",
+          },
+        },
+        "fotos salvador/carpete ferramente.jpg": {
+          es: {
+            title: "Estandarizacion y Organizacion de Herramientas",
+            desc: "Implemente una mejora para organizar herramientas con una maleta personalizada hecha con materiales sobrantes, facilitando el control al inicio y al final de las actividades.",
+          },
+          en: {
+            title: "Tool Standardization and Organization",
+            desc: "I implemented a tooling organization improvement with a custom case made from leftover materials, making checks faster at both start and end of activities.",
+          },
+        },
+        "fotos salvador/ferramenta espalhada.jpg": {
+          es: {
+            title: "Herramientas Sin Organizacion",
+            desc: "Antes las herramientas estaban dispersas y sin estandar, lo que dificultaba el control y aumentaba el tiempo de preparacion y cierre.",
+          },
+          en: {
+            title: "Tools Without Organization",
+            desc: "Before that, tools were scattered without a standard, increasing setup and wrap-up time and reducing control.",
+          },
+        },
+        "fotos salvador/kaizen0.jpeg": {
+          es: {
+            title: "Aplicacion de Monitoreo de Montaje",
+            desc: "Desarrolle una aplicacion de gestion visual para registrar en tiempo real cada etapa de instalacion de componentes en la linea de montaje.",
+          },
+          en: {
+            title: "Assembly Monitoring Application",
+            desc: "I developed a visual-management app to track each installation step in real time on the assembly line.",
+          },
+        },
+        "fotos salvador/kaizen1.jpeg": {
+          es: {
+            title: "Aplicacion de Monitoreo de Montaje",
+            desc: "<span style=\"display: block;\">🔴 Rojo: componente pendiente de instalacion.</span><span style=\"display: block;\">🟡 Amarillo: instalacion iniciada, pero incompleta.</span><span style=\"display: block;\">🟢 Verde: instalacion finalizada con exito.</span>",
+          },
+          en: {
+            title: "Assembly Monitoring Application",
+            desc: "<span style=\"display: block;\">🔴 Red: component pending installation.</span><span style=\"display: block;\">🟡 Yellow: installation started but incomplete.</span><span style=\"display: block;\">🟢 Green: installation completed successfully.</span>",
+          },
+        },
+        "fotos salvador/kaizen3.jpeg": {
+          es: {
+            title: "Aplicacion de Monitoreo de Montaje",
+            desc: "Esta solucion elimino fallos de comunicacion entre turnos y acelero la verificacion de piezas pendientes, mejorando eficiencia y control de calidad.",
+          },
+          en: {
+            title: "Assembly Monitoring Application",
+            desc: "This solution removed communication gaps between shifts and made missing-part verification faster, improving efficiency and quality control.",
+          },
+        },
+        "fotos salvador/superte.jpeg": {
+          es: {
+            title: "Soporte Auxiliar para Toma de Carga",
+            desc: "Identifique una oportunidad de mejora en la conexion y desconexion de tomas de carga, que antes exigia esfuerzo de dos personas.",
+          },
+          en: {
+            title: "Auxiliary Support for Charging Connector",
+            desc: "I identified an improvement opportunity in charging connector handling, which previously required effort from two people.",
+          },
+        },
+        "fotos salvador/superte ro.jpeg": {
+          es: {
+            title: "Soporte Auxiliar para Toma de Carga",
+            desc: "Desarrolle e implemente un soporte metalico que estabiliza la toma y permite una operacion segura por una sola persona.",
+          },
+          en: {
+            title: "Auxiliary Support for Charging Connector",
+            desc: "I developed and implemented a metal support that stabilizes the connector, enabling safe single-person operation.",
+          },
+        },
+        "fotos salvador/mix.jpg": {
+          es: {
+            title: "Dos anos de desafios, tecnologia y trabajo en equipo",
+            desc: "Registros de mi jornada en postproduccion de autobuses: diagnostico, interpretacion de esquemas, resolucion de averias y ajustes personalizados para entregar vehiculos con alta calidad.",
+          },
+          en: {
+            title: "Two years of challenges, technology and teamwork",
+            desc: "Records of my post-production bus journey: diagnostics, wiring-diagram interpretation, fault solving and custom adjustments to deliver high-quality vehicles.",
+          },
+        },
+        "Solar/fotos solar ok/ok solar.jpg": {
+          es: {
+            title: "Instalacion en Techo Industrial",
+            desc: "Trabajo en equipo en proyecto industrial de gran porte, con alto rigor tecnico, seguridad y coordinacion para cumplir plazos en estructuras complejas.",
+          },
+          en: {
+            title: "Industrial Rooftop Installation",
+            desc: "Teamwork in a large industrial project with high technical rigor, safety focus and strong coordination to meet deadlines in complex structures.",
+          },
+        },
+        "Solar/fotos solar ok/ok cafe.jpg": {
+          es: {
+            title: "Plantas en Suelo / Area Rural",
+            desc: "Experiencia en instalaciones de suelo en zonas rurales y urbanas, adaptando estructura y cableado a cada terreno con cooperacion de equipo.",
+          },
+          en: {
+            title: "Ground Plants / Rural Area",
+            desc: "Experience with ground installations in rural and urban areas, adapting structure and cabling to each terrain through team collaboration.",
+          },
+        },
+        "Solar/fotos solar ok/ok desenho.jpg": {
+          es: {
+            title: "Diseno 3D",
+            desc: "Aunque mi funcion principal era electrica, use modelado 3D para prever materiales y herramientas, reduciendo desperdicio y tiempo de instalacion.",
+          },
+          en: {
+            title: "3D Design",
+            desc: "Although my main role was electrical execution, I used 3D modeling to forecast materials and tools, reducing waste and installation time.",
+          },
+        },
+        "Solar/fotos solar ok/ok preventiva.jpg": {
+          es: {
+            title: "Mantenimiento Preventivo",
+            desc: "Aqui realizo mantenimiento preventivo en inversor, asegurando limpieza y ventilacion para evitar fallas y mantener eficiencia.",
+          },
+          en: {
+            title: "Preventive Maintenance",
+            desc: "Here I perform preventive maintenance on an inverter, ensuring proper cleaning and ventilation to avoid failures and keep efficiency.",
+          },
+        },
+        "Aquanobile/ok ro.jpg": {
+          es: {
+            title: "El resultado final",
+            desc: "La mayor satisfaccion: ver el sistema en operacion y el agua fluyendo con pureza, resultado de trabajo tecnico riguroso en captacion.",
+          },
+          en: {
+            title: "The final result",
+            desc: "The greatest satisfaction: seeing the system running and clean water flowing, the result of rigorous technical work in water capture systems.",
+          },
+        },
+        "Aquanobile/ok quadros trabalho.jpg": {
+          es: {
+            title: "Montaje y Diagnosticos",
+            desc: "Vista general del trabajo tecnico diario: dimensionamiento y montaje de cuadros, mediciones, pruebas de rendimiento y solucion de fallas.",
+          },
+          en: {
+            title: "Assembly and Diagnostics",
+            desc: "Overview of daily technical work: panel sizing and assembly, measurements, performance tests and troubleshooting.",
+          },
+        },
+        "Aquanobile/ok perfuration.jpg": {
+          es: {
+            title: "Seguimiento de Campo (Perforacion)",
+            desc: "Acompanamiento en campo durante perforacion de pozos artesianos, experiencia que inspiro un sistema online para seguimiento en tiempo real.",
+          },
+          en: {
+            title: "Field Follow-up (Drilling)",
+            desc: "Field follow-up during artesian well drilling, an experience that inspired an online real-time progress monitoring system.",
+          },
+        },
+        "Aquanobile/ok phagua.jpg": {
+          es: {
+            title: "Alarma para Cambios Quimicos del Agua",
+            desc: "Mi primer proyecto en la empresa: monitoreo continuo de pH con logica de automatizacion que activa alerta sonora ante variaciones.",
+          },
+          en: {
+            title: "Alarm for Water Chemical Changes",
+            desc: "My first project in the company: continuous pH monitoring with automation logic that triggers an audible alert on any variation.",
+          },
+        },
+        "Aquanobile/ok quadro de ferramentas.jpg": {
+          es: {
+            title: "Panel de Herramientas",
+            desc: "Hice este soporte con madera reutilizada para facilitar la rutina y cuidar mejor las herramientas.",
+          },
+          en: {
+            title: "Tool Board",
+            desc: "I built this support using reused wood to make daily work easier and improve tool care.",
+          },
+        },
+        "Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/1 app.jpeg": {
+          es: {
+            title: "Visualizacion del Subsuelo y Perforacion",
+            desc: "Desarrolle un sistema digital no-code para que cliente y oficina acompanen en tiempo real el avance de la obra desde cualquier lugar.",
+          },
+          en: {
+            title: "Subsoil and Drilling Visualization",
+            desc: "I developed a no-code digital system so both client and office can track drilling progress in real time from anywhere.",
+          },
+        },
+        "Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/2 app jpg.jpg": {
+          es: {
+            title: "Panel de Metricas y Analisis de Rendimiento",
+            desc: "Lo que antes se anotaba en papel paso a un panel interactivo que cruza varillas y tiempo de ejecucion para mapear dificultad geologica.",
+          },
+          en: {
+            title: "Metrics Dashboard and Performance Analysis",
+            desc: "What was once written on paper became an interactive dashboard crossing rod sequence and execution time to map geological difficulty.",
+          },
+        },
+        "Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/4 appb jpeg.jpg": {
+          es: {
+            title: "Geolocalizacion del Proyecto",
+            desc: "Georreferenciacion de obra con API de mapas para registrar con precision el punto de perforacion y su historial para la empresa.",
+          },
+          en: {
+            title: "Project Geolocation",
+            desc: "Project georeferencing with map API to accurately register drilling points and preserve the asset history for the company.",
+          },
+        },
+        "Aquanobile/WhatsApp Unknown 2026-04-25 at 10.34.20/3 app.jpeg": {
+          es: {
+            title: "Registro Fotografico y Evolucion de la Obra",
+            desc: "Diario digital de obra con fotos diarias para asegurar cumplimiento de procedimientos y facilitar inspeccion remota de ingenieria.",
+          },
+          en: {
+            title: "Photo Record and Project Progress",
+            desc: "Digital construction diary with daily photos to ensure procedures are followed and support remote engineering inspection.",
+          },
+        },
+        "P&G/ok ro pg.jpg": {
+          es: {
+            title: "Inicio de la Trayectoria Profesional",
+            desc: "Inicio de mi trayectoria en piso de fabrica tras practicas, operando diversas maquinas para dominar flujo productivo y rutinas operativas.",
+          },
+          en: {
+            title: "Start of Professional Journey",
+            desc: "Beginning of my journey on the factory floor after internship, operating different machines to master production flow and routines.",
+          },
+        },
+        "P&G/ok supor bobi2.jpg": {
+          es: {
+            title: "Proceso de Mecanizado y Fabricacion",
+            desc: "Aplique fundamentos de mecatronica para resolver un problema real: redisenar en metal soportes que se rompian y causaban costos y paradas.",
+          },
+          en: {
+            title: "Machining and Fabrication Process",
+            desc: "I applied mechatronics fundamentals to solve a real issue: redesigning fragile supports in metal to reduce cost and downtime.",
+          },
+        },
+        "P&G/ok sleeve1.jpg": {
+          es: {
+            title: "Mantenimiento Correctivo",
+            desc: "En ambiente de alta demanda, un dano en disco de bobina comprometio produccion y exigi una respuesta tecnica rapida.",
+          },
+          en: {
+            title: "Corrective Maintenance",
+            desc: "In a high-demand environment, damage to a label-roll disk affected production and required fast technical action.",
+          },
+        },
+        "P&G/ok pino1.jpg": {
+          es: {
+            title: "Mantenimiento Correctivo",
+            desc: "Registro del inicio de fabricacion de un manipulo metalico para sustituir una pieza plastica que no resistio uso diario.",
+          },
+          en: {
+            title: "Corrective Maintenance",
+            desc: "Record of the start of a metal handle fabrication to replace a plastic part that did not withstand daily use.",
+          },
+        },
+        "P&G/ok supor 2.jpg": {
+          es: {
+            title: "Proceso de Mecanizado y Fabricacion",
+            desc: "La pieza ya toma su forma final, con foco total en precision para asegurar encaje exacto y una solucion definitiva.",
+          },
+          en: {
+            title: "Machining and Fabrication Process",
+            desc: "The part is already taking final shape, with full focus on precision for exact fit and a permanent solution.",
+          },
+        },
+        "P&G/ok suport pronto.jpg": {
+          es: {
+            title: "Resultado Final",
+            desc: "Pieza final muy resistente y bien acabada. La empresa ahorro tiempo y dinero, y recibi reconocimiento profesional por la iniciativa.",
+          },
+          en: {
+            title: "Final Result",
+            desc: "Very strong, well-finished part. The company saved time and money, and I received professional recognition for the initiative.",
+          },
+        },
+        "P&G/ok fugi maquina.jpg": {
+          es: {
+            title: "Especializacion en Etiquetado",
+            desc: "Tras dominar diferentes maquinas, me especialice en tecnologias de etiquetado para asegurar maxima productividad de la linea.",
+          },
+          en: {
+            title: "Labeling Specialization",
+            desc: "After mastering different machines, I specialized in labeling technologies to ensure maximum line productivity.",
+          },
+        },
+        "P&G/ok sleeve2.jpg": {
+          es: {
+            title: "Fabricacion Interna",
+            desc: "Como la pieza original era importada y demoraba, fabrique internamente un nuevo disco con acrilico reaprovechado.",
+          },
+          en: {
+            title: "In-house Fabrication",
+            desc: "Since the original part was imported with long lead time, I manufactured a new disk in-house using reused acrylic.",
+          },
+        },
+        "P&G/ok sleeve3.jpg": {
+          es: {
+            title: "Resultado Final",
+            desc: "Pieza finalizada con reduccion de costo de mantenimiento y recuperacion inmediata de productividad total de la maquina.",
+          },
+          en: {
+            title: "Final Result",
+            desc: "Part completed, reducing maintenance cost and restoring full machine productivity immediately.",
+          },
+        },
+        "P&G/ok pino2.jpg": {
+          es: {
+            title: "Reaprovechando Materiales",
+            desc: "Es gratificante transformar lo que seria descarte en una pieza esencial para la produccion.",
+          },
+          en: {
+            title: "Reusing Materials",
+            desc: "It is rewarding to turn what would be scrap into an essential production part.",
+          },
+        },
+        "P&G/ok pino 3.jpg": {
+          es: {
+            title: "Mecanizado",
+            desc: "Tengo gran afinidad con trabajo manual y mecanizado. Aqui la pieza empieza a tomar forma final.",
+          },
+          en: {
+            title: "Machining",
+            desc: "I have strong affinity with manual work and machining. Here the part starts to take its final shape.",
+          },
+        },
+        "P&G/ok pino4.jpg": {
+          es: {
+            title: "Durabilidad y Bajo Costo",
+            desc: "Pieza final lista para instalacion, mas resistente que la original, fabricada en pocas horas y con costo muy bajo.",
+          },
+          en: {
+            title: "Durability and Low Cost",
+            desc: "Final part ready for installation, more durable than the original, made in a few hours at very low cost.",
+          },
+        },
+      };
+
+      const translateStorySlide = (slide, lang) => {
+        if (!slide || !slide.src || lang === "pt") return { ...slide };
+        const translated = storyTranslations[slide.src]?.[lang];
+        if (!translated) return { ...slide };
+        return {
+          ...slide,
+          title: translated.title ?? slide.title,
+          desc: translated.desc ?? slide.desc,
+        };
+      };
+
+      const syncToggleAria = (btn) => {
+        const pack = i18n[currentLang] || i18n.es;
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute(
+          "aria-label",
+          expanded ? "Recolher detalhes da trajetória" : "Expandir detalhes da trajetória"
+        );
+        if (pack === i18n.es) {
+          btn.setAttribute(
+            "aria-label",
+            expanded ? "Ocultar detalles de la trayectoria" : "Expandir detalles de la trayectoria"
+          );
+        }
+        if (pack === i18n.en) {
+          btn.setAttribute(
+            "aria-label",
+            expanded ? "Collapse career details" : "Expand career details"
+          );
+        }
+      };
+
+      const closeLanguageMenu = () => {
+        const optionsPanel = document.getElementById("languageOptions");
+        if (!languageButton || !optionsPanel) return;
+        languageButton.setAttribute("aria-expanded", "false");
+        optionsPanel.hidden = true;
+      };
+
+      const setLanguageMenuValue = (lang) => {
+        const nextLang = i18n[lang] ? lang : "es";
+        if (languageLabel) languageLabel.textContent = languageLabels[nextLang] || languageLabels.es;
+        languageOptions.forEach((option) => {
+          const isActive = option.dataset.lang === nextLang;
+          option.setAttribute("aria-checked", String(isActive));
+        });
+      };
+
+      const applyLanguage = (lang) => {
+        const pack = i18n[lang] || i18n.es;
+        currentLang = i18n[lang] ? lang : "es";
+        setLanguageMenuValue(currentLang);
+        document.documentElement.lang = pack.htmlLang;
+        document.title = pack.metaTitle;
+
+        const cvSection = document.querySelector(".shell");
+        const introSection = document.querySelector(".hero");
+        const highlights = document.querySelector(".miniStats");
+        const opportunities = document.querySelector(".highlightNotice");
+        const profile = document.querySelector(".profileCard");
+        const mainContent = document.querySelector(".sectionGrid");
+        const timelinePanel = document.getElementById("trajetoria");
+        const projectsPanel = document.getElementById("projetos");
+        const achievements = document.querySelector(".achievements");
+        const footer = document.querySelector(".footer");
+        const social = document.querySelector(".social");
+        const nav = document.querySelector(".nav");
+        if (cvSection) cvSection.setAttribute("aria-label", pack.sectionAria.cv);
+        if (introSection) introSection.setAttribute("aria-label", pack.sectionAria.intro);
+        if (highlights) highlights.setAttribute("aria-label", pack.sectionAria.highlights);
+        if (opportunities) opportunities.setAttribute("aria-label", pack.sectionAria.opportunities);
+        if (profile) profile.setAttribute("aria-label", pack.sectionAria.profile);
+        if (mainContent) mainContent.setAttribute("aria-label", pack.sectionAria.main);
+        if (timelinePanel) timelinePanel.setAttribute("aria-label", pack.sectionAria.timeline);
+        if (projectsPanel) projectsPanel.setAttribute("aria-label", pack.sectionAria.projects);
+        if (achievements) achievements.setAttribute("aria-label", pack.sectionAria.achievements);
+        if (footer) footer.setAttribute("aria-label", pack.sectionAria.footer);
+        if (social) social.setAttribute("aria-label", pack.sectionAria.social);
+        if (nav) nav.setAttribute("aria-label", pack.navAria);
+
+        setText(".brand small", pack.brandSubtitle);
+        setTextList(".nav a", pack.nav);
+        setText(".kicker strong", pack.kickerStrong);
+        setText(".kicker span", pack.kickerText);
+        setText(".heroCard h1", pack.heroTitle);
+        setHTML(".subtitle", pack.heroSubtitle);
+        setTextList(".ctaRow .btn .btnLabel", pack.ctas);
+        setTextList(".miniStats .pill", pack.pills);
+
+        const noticeTexts = document.querySelectorAll(".highlightNotice p");
+        if (noticeTexts[0]) noticeTexts[0].textContent = pack.noticeP1;
+        if (noticeTexts[1]) noticeTexts[1].innerHTML = pack.noticeP2;
+
+        setText("#roleBadge", pack.roleBadge);
+        setText(".metaLine a[href=\"#contato\"]", pack.downloadCv);
+        setTextList(".sectionTitle h3", pack.sectionTitleH3);
+        setTextList(".sectionTitle p", pack.sectionTitleP);
+        setTextList(".tmLeftDate", pack.timelineDates);
+        setTextList(".tmDateMobile", pack.timelineDatesMobile);
+        setTextList(".tmCard h4", pack.timelineRoles);
+        setTextList(".tmCompany", pack.timelineCompanies);
+        setTextList(".tmCard .tmDesc", pack.timelineDesc);
+        setTextList(".workCard h4", pack.projectTitles);
+        setHTMLList(".workCard p", pack.projectDesc);
+        setTextList(".achCard strong", pack.achStrong);
+        setTextList(".achCard small", pack.achSmall);
+        setText(".footRight strong", pack.footerContact);
+
+        const lightboxDialog = document.querySelector(".tmLightboxInner");
+        const lightboxCloseBtn = document.querySelector(".tmLightboxClose");
+        const lightboxPrevBtn = document.querySelector(".tmLightboxPrev");
+        const lightboxNextBtn = document.querySelector(".tmLightboxNext");
+        if (lightboxDialog) lightboxDialog.setAttribute("aria-label", pack.lightboxAria.dialog);
+        if (lightboxCloseBtn) lightboxCloseBtn.setAttribute("aria-label", pack.lightboxAria.close);
+        if (lightboxPrevBtn) lightboxPrevBtn.setAttribute("aria-label", pack.lightboxAria.prev);
+        if (lightboxNextBtn) lightboxNextBtn.setAttribute("aria-label", pack.lightboxAria.next);
+        setText(".contactEmailText strong", pack.contact.myEmail);
+        setText("#copyContactEmail .btnLabel", pack.contact.copy);
+
+        const contactClose = document.getElementById("contactModalClose");
+        if (contactClose) contactClose.setAttribute("aria-label", pack.contact.closeAria);
+
+        document.querySelectorAll(".tmToggle").forEach((btn) => syncToggleAria(btn));
+
+        document.querySelectorAll(".tmCarousel").forEach((carousel) => {
+          const baseSlides = Array.isArray(carousel._tmSlidesBase) ? carousel._tmSlidesBase : [];
+          if (!baseSlides.length || typeof carousel._tmSetSlides !== "function") return;
+          const translatedSlides = baseSlides.map((slide) => translateStorySlide(slide, currentLang));
+          carousel._tmSetSlides(translatedSlides);
+          const active = typeof carousel._tmGetActive === "function" ? carousel._tmGetActive() : 0;
+          if (typeof carousel._tmSetActive === "function") carousel._tmSetActive(active);
+        });
+      };
+
+      const preferredLang = localStorage.getItem("portfolioLang") || "es";
+      setLanguageMenuValue(i18n[preferredLang] ? preferredLang : "es");
+      applyLanguage(i18n[preferredLang] ? preferredLang : "es");
+
+      const smoothLinks = document.querySelectorAll('a[href^="#"]');
+      smoothLinks.forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          if (!id || id === "#") return;
+          const el = document.querySelector(id);
+          if (!el) return;
+          e.preventDefault();
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.pushState(null, "", id);
+        });
+      });
+
+      const tmToggles = document.querySelectorAll(".tmToggle");
+      tmToggles.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.getAttribute("aria-controls");
+          if (!targetId) return;
+          const target = document.getElementById(targetId);
+          if (!target) return;
+
+          const isExpanded = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!isExpanded));
+          target.hidden = isExpanded;
+          syncToggleAria(btn);
+        });
+      });
+
+      languageButton?.addEventListener("click", () => {
+        const optionsPanel = document.getElementById("languageOptions");
+        if (!languageButton || !optionsPanel) return;
+        const isExpanded = languageButton.getAttribute("aria-expanded") === "true";
+        languageButton.setAttribute("aria-expanded", String(!isExpanded));
+        optionsPanel.hidden = isExpanded;
+      });
+
+      languageOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          const selected = option.dataset.lang || "es";
+          const nextLang = i18n[selected] ? selected : "es";
+          localStorage.setItem("portfolioLang", nextLang);
+          applyLanguage(nextLang);
+          closeLanguageMenu();
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu) return;
+        if (languageMenu.contains(event.target)) return;
+        closeLanguageMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageMenu();
+      });
+
+      const storyLists = document.querySelectorAll(".tmStoryList");
+      storyLists.forEach((list) => {
+        if (list.dataset.carouselInit === "true") return;
+        const items = Array.from(list.querySelectorAll(":scope > .tmStoryItem"));
+        if (items.length === 0) return;
+
+        const maxSlides = Math.max(1, Number.parseInt(list.dataset.maxSlides ?? "4", 10) || 4);
+        const slidesAll = items
+          .map((item) => {
+            const img = item.querySelector("img.tmStoryPhoto");
+            const title = item.querySelector(".tmStoryInfo h5")?.textContent?.trim() ?? "";
+            const desc = item.querySelector(".tmStoryInfo p")?.innerHTML?.trim() ?? "";
+            return {
+              src: img?.getAttribute("src") ?? "",
+              alt: img?.getAttribute("alt") ?? "",
+              title,
+              desc,
+            };
+          })
+          .filter((slide) => slide.src.trim() !== "");
+
+        if (slidesAll.length === 0) return;
+        list.dataset.carouselInit = "true";
+
+        items.forEach((item) => {
+          item.remove();
+        });
+
+        const slideGroups = [];
+        for (let i = 0; i < slidesAll.length; i += maxSlides) {
+          slideGroups.push(slidesAll.slice(i, i + maxSlides));
+        }
+
+        slideGroups.forEach((slides, groupIndex) => {
+          const isTrajDetails4 = list.closest(".tmExpand")?.id === "traj-details-4";
+          let carouselSlides = slides.slice();
+          
+          // Adiciona fotos extras apenas no segundo bloco (onde está o ok supor bobi2.jpg)
+          if (isTrajDetails4 && groupIndex === 1) {
+            carouselSlides.push({
+              src: "P&G/ok supor 2.jpg",
+              alt: "Processo de usinagem 1",
+              title: carouselSlides[0]?.title ?? "",
+              desc: "Aqui a peça já está tomando forma final. Foco total na precisão para que o encaixe nas máquinas de rótulo seja exato e a manutenção seja definitiva.",
+            });
+            carouselSlides.push({
+              src: "P&G/ok suport pronto.jpg",
+              alt: "Suporte pronto",
+              title: "Resultado Final",
+              desc: "Esse foi o resultado final! A peça ficou extremamente resistente e com um acabamento que me deixou muito satisfeito. O melhor de tudo foi ver o impacto real: a empresa economizou tempo e dinheiro, e eu recebi um reconhecimento profissional muito gratificante por essa iniciativa.",
+            });
+          }
+
+          // Adiciona a foto da máquina de volta no primeiro bloco
+          if (isTrajDetails4 && groupIndex === 0) {
+            carouselSlides.push({
+              src: "P&G/ok fugi maquina.jpg",
+              alt: "Máquina",
+              title: "Especialização em Rotulagem",
+              desc: "Após dominar diferentes máquinas, me especializei em tecnologias de rotulagem, onde passei a realizar o controle operacional e ajustes técnicos para assegurar a máxima produtividade da linha.",
+            });
+          }
+
+          // Adiciona fotos extras no terceiro bloco (onde está o ok sleeve1.jpg)
+          if (isTrajDetails4 && groupIndex === 2) {
+            carouselSlides.push({
+              src: "P&G/ok sleeve2.jpg",
+              alt: "Sleeve parte 2",
+              title: "Fabricação Interna",
+              desc: "Como a peça original era importada e o prazo de entrega longo, decidi fabricar um novo disco internamente. Utilizei sobras de acrílico de outros projetos para criar uma peça sob medida, evitando que a máquina ficasse operando com baixa eficiência por semanas.",
+            });
+            carouselSlides.push({
+              src: "P&G/ok sleeve3.jpg",
+              alt: "Sleeve parte 3",
+              title: "Resultado Final",
+              desc: "Peça finalizada. Fiquei muito satisfeito com o resultado: reduzimos o custo de manutenção e garantimos o retorno imediato da produtividade total da máquina",
+            });
+          }
+
+          // Adiciona fotos extras no quarto bloco (onde está o ok pino1.jpg)
+          if (isTrajDetails4 && groupIndex === 3) {
+            carouselSlides.push({
+              src: "P&G/ok pino2.jpg",
+              alt: "Pino parte 2",
+              title: "Reaproveitando Materiais",
+              desc: "É gratificante transformar o que seria descarte em uma peça essencial para a produção.",
+            });
+            carouselSlides.push({
+              src: "P&G/ok pino 3.jpg",
+              alt: "Pino parte 3",
+              title: "Usinagem",
+              desc: "Tenho grande afinidade com o trabalho manual e a usinagem. Aqui, a peça começa a ganhar sua forma final.",
+            });
+            carouselSlides.push({
+              src: "P&G/ok pino4.jpg",
+              alt: "Pino parte 4",
+              title: "Durabilidade e Baixo Custo",
+              desc: "Peça finalizada e pronta para instalação. O resultado é um componente muito mais resistente que o original, fabricado em poucas horas e com custo baixíssimo, eliminando um ponto recorrente de falha na operação.",
+            });
+          }
+
+          const baseSlides = carouselSlides.map((slide) => ({ ...slide }));
+          carouselSlides = baseSlides.map((slide) => translateStorySlide(slide, currentLang));
+
+          const carousel = document.createElement("div");
+          carousel.className = "tmCarousel";
+          carousel.innerHTML = `
+            <div class="tmCarouselSlide" role="group" aria-label="Carrossel de imagens ${groupIndex + 1}">
+              <div class="tmCarouselMedia">
+                <div class="tmCarouselMainWrap">
+                  <img class="tmCarouselMain" alt="">
+                  <div class="tmCarouselNav">
+                    <button class="tmCarouselBtn" type="button" data-dir="-1" aria-label="Imagem anterior">
+                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <button class="tmCarouselBtn" type="button" data-dir="1" aria-label="Próxima imagem">
+                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="tmCarouselThumbs" aria-label="Miniaturas"></div>
+              </div>
+              <div class="tmCarouselInfo">
+                <h5></h5>
+                <p></p>
+              </div>
+            </div>
+          `;
+
+          list.appendChild(carousel);
+
+          const mainImg = carousel.querySelector(".tmCarouselMain");
+          const titleEl = carousel.querySelector(".tmCarouselInfo h5");
+          const descEl = carousel.querySelector(".tmCarouselInfo p");
+          const thumbsEl = carousel.querySelector(".tmCarouselThumbs");
+
+          let activeIndex = 0;
+
+          const setActive = (index) => {
+            const safeIndex = ((index % carouselSlides.length) + carouselSlides.length) % carouselSlides.length;
+            activeIndex = safeIndex;
+            const slide = carouselSlides[safeIndex];
+            mainImg.src = slide.src;
+            mainImg.alt = slide.alt || `Imagem ${safeIndex + 1}`;
+            titleEl.textContent = slide.title;
+            descEl.innerHTML = slide.desc;
+
+            const thumbButtons = Array.from(thumbsEl.querySelectorAll(".tmThumb"));
+            thumbButtons.forEach((btn, i) => {
+              btn.setAttribute("aria-current", String(i === safeIndex));
+            });
+          };
+          carousel._tmSetActive = setActive;
+          carousel._tmGetActive = () => activeIndex;
+          carousel._tmGetCount = () => carouselSlides.length;
+          carousel._tmSlidesBase = baseSlides.map((slide) => ({ ...slide }));
+          carousel._tmSetSlides = (nextSlides) => {
+            carouselSlides = Array.isArray(nextSlides) ? nextSlides.map((slide) => ({ ...slide })) : [];
+            carousel._tmSlides = carouselSlides.map((slide) => ({ ...slide }));
+          };
+          carousel._tmSlides = carouselSlides.map((slide) => ({ ...slide }));
+
+          carouselSlides.forEach((slide, i) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "tmThumb";
+            btn.setAttribute("aria-label", `Ver imagem ${i + 1}`);
+            btn.setAttribute("aria-current", "false");
+
+            const img = document.createElement("img");
+            img.src = slide.src;
+            img.alt = "";
+            btn.appendChild(img);
+
+            btn.addEventListener("click", () => setActive(i));
+            thumbsEl.appendChild(btn);
+          });
+
+          const navButtons = carousel.querySelectorAll(".tmCarouselBtn");
+          if (carouselSlides.length <= 1) {
+            navButtons.forEach((btn) => {
+              btn.hidden = true;
+            });
+          }
+          navButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const dir = Number(btn.getAttribute("data-dir") ?? "0");
+              setActive(activeIndex + dir);
+            });
+          });
+
+          setActive(0);
+        });
+      });
+
+      const lightbox = document.getElementById("tmLightbox");
+      const lightboxInner = lightbox?.querySelector(".tmLightboxInner");
+      const lightboxImg = lightbox?.querySelector(".tmLightboxImg");
+      const lightboxClose = lightbox?.querySelector(".tmLightboxClose");
+      const lightboxPrev = lightbox?.querySelector(".tmLightboxPrev");
+      const lightboxNext = lightbox?.querySelector(".tmLightboxNext");
+      let lightboxLastFocus = null;
+      let lightboxCarousel = null;
+      let lightboxSetActive = null;
+      let lightboxGetActive = null;
+      let lightboxSlideCount = 0;
+      let lightboxSlides = [];
+      let lightboxActiveIndex = 0;
+      const contactModal = document.getElementById("contactModal");
+      const openContactModalBtns = document.querySelectorAll("[data-open-contact-modal]");
+      const closeContactModalBtn = document.getElementById("contactModalClose");
+      const contactFeedback = document.getElementById("contactFeedback");
+      const copyContactEmailBtn = document.getElementById("copyContactEmail");
+      const emailSource = document.getElementById("email");
+      const contactEmailValue = document.getElementById("contactEmailValue");
+      const contactTargetEmail = (emailSource?.textContent || contactEmailValue?.textContent || "rodrigo.rdgk@gmail.com").trim();
+      const customLightboxGalleries = {
+        "luz-ritmica": [
+          { src: "Luz Rítmica/ok luz 1.jpg", alt: "Luz Rítmica 1" },
+          { src: "Luz Rítmica/ok luz 2.jpg", alt: "Luz Rítmica 2" },
+          { src: "Luz Rítmica/ok luz 3.jpg", alt: "Luz Rítmica 3" },
+          { src: "Luz Rítmica/ok luz 4.jpg", alt: "Luz Rítmica 4" },
+        ],
+      };
+      let contactLastFocus = null;
+
+      if (contactEmailValue) {
+        contactEmailValue.textContent = contactTargetEmail;
+      }
+
+      const setContactFeedback = (message) => {
+        if (contactFeedback) {
+          contactFeedback.textContent = message;
+        }
+      };
+
+      const openContactModal = () => {
+        if (!contactModal) return;
+        contactLastFocus = document.activeElement;
+        contactModal.hidden = false;
+        document.body.style.overflow = "hidden";
+        setContactFeedback("");
+        window.setTimeout(() => {
+          copyContactEmailBtn?.focus();
+        }, 0);
+      };
+
+      const closeContactModal = () => {
+        if (!contactModal || contactModal.hidden) return;
+        contactModal.hidden = true;
+        document.body.style.overflow = "";
+        setContactFeedback("");
+        if (contactLastFocus && typeof contactLastFocus.focus === "function") {
+          contactLastFocus.focus();
+        }
+        contactLastFocus = null;
+      };
+
+      const setLightboxNavVisible = (visible) => {
+        if (!lightboxPrev || !lightboxNext) return;
+        lightboxPrev.hidden = !visible;
+        lightboxNext.hidden = !visible;
+      };
+
+      const renderLightboxSlide = () => {
+        if (!lightboxImg || !lightboxSlides.length) return;
+        const slide = lightboxSlides[lightboxActiveIndex];
+        if (!slide) return;
+        lightboxImg.src = slide.src;
+        lightboxImg.alt = slide.alt || `Imagem ${lightboxActiveIndex + 1}`;
+      };
+
+      const setLightboxActive = (index) => {
+        if (lightboxSlideCount <= 1 || !lightboxSlides.length) return;
+        const n = lightboxSlideCount;
+        const safeIndex = ((index % n) + n) % n;
+        lightboxActiveIndex = safeIndex;
+        renderLightboxSlide();
+      };
+
+      const closeLightbox = () => {
+        if (!lightbox || !lightboxImg) return;
+        if (lightbox.hidden) return;
+        lightbox.hidden = true;
+        lightboxImg.src = "";
+        document.body.style.overflow = "";
+        if (lightboxCarousel && lightboxSetActive && lightboxSlideCount > 1) {
+          lightboxSetActive(lightboxActiveIndex);
+        }
+        lightboxCarousel = null;
+        lightboxSetActive = null;
+        lightboxGetActive = null;
+        lightboxSlideCount = 0;
+        lightboxSlides = [];
+        lightboxActiveIndex = 0;
+        setLightboxNavVisible(false);
+        if (lightboxLastFocus && typeof lightboxLastFocus.focus === "function") {
+          lightboxLastFocus.focus();
+        }
+        lightboxLastFocus = null;
+      };
+
+      const openLightboxFromImg = (imgEl) => {
+        if (!lightbox || !lightboxImg || !lightboxClose) return;
+        const src = imgEl?.currentSrc || imgEl?.getAttribute?.("src") || "";
+        if (!src || !src.trim()) return;
+        lightboxLastFocus = document.activeElement;
+
+        const isFromCarousel = imgEl.classList.contains("tmCarouselMain");
+        if (isFromCarousel) {
+          const carousel = imgEl.closest(".tmCarousel");
+          if (carousel instanceof HTMLElement) {
+            lightboxCarousel = carousel;
+            lightboxSetActive = typeof carousel._tmSetActive === "function" ? carousel._tmSetActive : null;
+            lightboxGetActive = typeof carousel._tmGetActive === "function" ? carousel._tmGetActive : null;
+            lightboxSlideCount = typeof carousel._tmGetCount === "function" ? carousel._tmGetCount() : 0;
+            lightboxActiveIndex = typeof lightboxGetActive === "function" ? lightboxGetActive() : 0;
+            lightboxSlides = Array.isArray(carousel._tmSlides) ? carousel._tmSlides.map((slide) => ({ ...slide })) : [];
+            setLightboxNavVisible(lightboxSlideCount > 1);
+            renderLightboxSlide();
+          } else {
+            lightboxCarousel = null;
+            lightboxSetActive = null;
+            lightboxGetActive = null;
+            lightboxSlideCount = 0;
+            lightboxSlides = [];
+            lightboxActiveIndex = 0;
+            setLightboxNavVisible(false);
+            lightboxImg.src = src;
+            lightboxImg.alt = imgEl?.getAttribute?.("alt") ?? "";
+          }
+        } else {
+          lightboxCarousel = null;
+          lightboxSetActive = null;
+          lightboxGetActive = null;
+          const galleryKey = imgEl.dataset.lightboxGallery ?? "";
+          const customGallery = customLightboxGalleries[galleryKey];
+          if (Array.isArray(customGallery) && customGallery.length > 0) {
+            lightboxSlides = customGallery.map((slide) => ({ ...slide }));
+            lightboxSlideCount = lightboxSlides.length;
+            const currentIndex = lightboxSlides.findIndex((slide) => slide.src === src);
+            lightboxActiveIndex = currentIndex >= 0 ? currentIndex : 0;
+            setLightboxNavVisible(lightboxSlideCount > 1);
+          } else {
+            lightboxSlideCount = 1;
+            lightboxSlides = [{ src, alt: imgEl?.getAttribute?.("alt") ?? "" }];
+            lightboxActiveIndex = 0;
+            setLightboxNavVisible(false);
+          }
+          renderLightboxSlide();
+        }
+
+        lightbox.hidden = false;
+        document.body.style.overflow = "hidden";
+        lightboxClose.focus();
+      };
+
+      if (lightbox) {
+        lightboxClose?.addEventListener("click", closeLightbox);
+        lightboxPrev?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          setLightboxActive(lightboxActiveIndex - 1);
+        });
+        lightboxNext?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          setLightboxActive(lightboxActiveIndex + 1);
+        });
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox || e.target === lightboxInner) closeLightbox();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeLightbox();
+          if (lightbox.hidden) return;
+          if (e.key === "ArrowLeft") setLightboxActive(lightboxActiveIndex - 1);
+          if (e.key === "ArrowRight") setLightboxActive(lightboxActiveIndex + 1);
+        });
+        document.addEventListener("click", (e) => {
+          const target = e.target;
+          if (!(target instanceof HTMLElement)) return;
+          const imgEl = target.closest(".tmCarouselMain, .tmStoryPhoto, .workMedia img");
+          if (!(imgEl instanceof HTMLImageElement)) return;
+          openLightboxFromImg(imgEl);
+        });
+      }
+
+      openContactModalBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openContactModal();
+        });
+      });
+
+      closeContactModalBtn?.addEventListener("click", closeContactModal);
+
+      contactModal?.addEventListener("click", (e) => {
+        if (e.target === contactModal) closeContactModal();
+      });
+
+      copyContactEmailBtn?.addEventListener("click", async () => {
+        try {
+          const pack = i18n[currentLang] || i18n.es;
+          if (navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(contactTargetEmail);
+            setContactFeedback(pack.contact.copyOk);
+            return;
+          }
+          setContactFeedback(pack.contact.copyFail);
+        } catch {
+          const pack = i18n[currentLang] || i18n.es;
+          setContactFeedback(pack.contact.copyFail);
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeContactModal();
+      });
+    </script>
+  </body>
+</html>
